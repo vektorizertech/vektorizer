@@ -114,7 +114,7 @@ const EYESMARTY = {
     "An intelligent time-tracking and productivity insights platform designed for modern remote and hybrid teams to boost efficiency without micromanagement",
   thumbnail: "thumbnail.png",
   website: "https://www.eyesmarty.com",
-  featured: false,
+  featured: true,
   images: false,
   modules: [
     {
