@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://vektorizer.com
+
+# Sitemaps
+Sitemap: https://vektorizer.com/sitemap.xml
