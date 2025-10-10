@@ -7,12 +7,12 @@ export const SOCIAL_LINKS = [
     label: "Facebook",
   },
   {
-    href: "https://www.twitter.com/vektorizer",
+    href: "https://www.twitter.com/vektorizertech",
     icon: Twitter,
     label: "Twitter",
   },
   {
-    href: "https://www.instagram.com/vektorizer",
+    href: "https://www.instagram.com/vektorizertech",
     icon: Instagram,
     label: "Instagram",
   },
