@@ -6,8 +6,8 @@ import ScrollToTop from "@/components/ScrollToTop";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingScrollButton from "@/components/FloatingScrollButton";
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 import AOSProvider from "./aos";
 
 const inter = Inter({
@@ -17,7 +17,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "vektorizer – Your product served with excellence",
+    default: "Vektorizer",
     template: "%s | vektorizer",
   },
   description:

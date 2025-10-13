@@ -13,11 +13,14 @@ import { PROJECTS } from "@/data/projects";
 import { fetchBlogs } from "@/lib/fetchBlogs";
 
 export const metadata: Metadata = {
-  description: "Explore Vektorizer's digital solutions in web development, mobile apps, blockchain, and AI. Trusted by global clients.",
-  keywords: "web development, mobile apps, AI integration, blockchain, Pakistan software house",
+  description:
+    "Explore Vektorizer's digital solutions in web development, mobile apps, blockchain, and AI. Trusted by global clients.",
+  keywords:
+    "Web development, mobile apps, AI integration, blockchain, Pakistan software house",
   openGraph: {
     title: "Vektorizer | Building Digital Brilliance",
-    description: "Explore our services and insights to build your next big idea.",
+    description:
+      "Explore our services and insights to build your next big idea.",
     url: "https://vektorizer.com",
     siteName: "Vektorizer",
     images: [
@@ -34,7 +37,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Vektorizer | Building Digital Brilliance",
-    description: "Explore our services and insights to build your next big idea.",
+    description:
+      "Explore our services and insights to build your next big idea.",
     images: ["https://vektorizer.com/og-image.jpg"],
   },
 };
@@ -56,14 +60,18 @@ export default async function Home() {
             logo: "https://vektorizer.com/logo.png",
             sameAs: [
               "https://www.linkedin.com/company/vektorizer",
-              "https://github.com/vektorizer"
+              "https://github.com/vektorizer",
             ],
           }),
         }}
       />
 
       {/* Hero */}
-      <section className="py-20 hero-gradient md:py-32" data-aos="fade-up" data-aos-duration="1000">
+      <section
+        className="py-20 hero-gradient md:py-32"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
         <div className="container max-w-5xl px-4 mx-auto text-center animate-fade-up">
           <div className="inline-flex items-center px-6 py-3 mb-8 text-sm font-semibold rounded-full bg-primary/10 text-primary animate-bounce-subtle dark:text-white">
             🚀 Welcome to the Future of Development
@@ -72,17 +80,27 @@ export default async function Home() {
             Building Digital <span className="text-gradient">Brilliance</span>
           </h1>
           <p className="max-w-4xl mx-auto mb-12 text-xl leading-relaxed md:text-2xl text-muted-foreground animate-fade-up animation-delay-200">
-            We craft exceptional digital experiences through innovative web development,
-            mobile applications, and cutting-edge technology solutions that transform businesses.
+            We craft exceptional digital experiences through innovative web
+            development, mobile applications, and cutting-edge technology
+            solutions that transform businesses.
           </p>
           <div className="flex flex-col justify-center gap-6 sm:flex-row animate-fade-up animation-delay-400">
-            <Button asChild size="lg" className="w-full px-10 py-6 text-lg rounded-full sm:w-auto cta-button group dark:text-white">
+            <Button
+              asChild
+              size="lg"
+              className="w-full px-10 py-6 text-lg rounded-full sm:w-auto cta-button group dark:text-white"
+            >
               <Link href={ROUTES.CONTACT}>
                 <span>Start Your Project</span>
                 <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="w-full px-10 py-6 text-lg rounded-full sm:w-auto hover:bg-primary/5">
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="w-full px-10 py-6 text-lg rounded-full sm:w-auto hover:bg-primary/5"
+            >
               <Link href={ROUTES.PORTFOLIO}>View Our Work</Link>
             </Button>
           </div>
@@ -92,11 +110,17 @@ export default async function Home() {
       {/* Services */}
       <section className="py-24 bg-secondary">
         <div className="container px-4">
-          <div className="mb-20 text-center" data-aos="fade-up" data-aos-duration="1000">
+          <div
+            className="mb-20 text-center"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+          >
             <div className="inline-flex items-center px-4 py-2 mb-6 text-sm rounded-full bg-primary/10 text-primary dark:text-white">
               ⚡ Our Expertise
             </div>
-            <h2 className="mb-6 text-4xl font-bold md:text-5xl">Our Services</h2>
+            <h2 className="mb-6 text-4xl font-bold md:text-5xl">
+              Our Services
+            </h2>
             <p className="max-w-3xl mx-auto text-xl text-muted-foreground">
               Comprehensive digital solutions tailored to your business needs
             </p>
@@ -108,16 +132,27 @@ export default async function Home() {
                 data-aos={i % 2 === 0 ? "zoom-in-up" : "flip-left"}
                 data-aos-delay={i * 100}
                 data-aos-duration="800"
-                className={cn("card-gradient p-8 hover:scale-105 transition-all duration-500 group")}
+                className={cn(
+                  "card-gradient p-8 hover:scale-105 transition-all duration-500 group"
+                )}
               >
                 <service.icon className="w-12 h-12 mb-6 transition-all duration-500 text-primary group-hover:scale-110 group-hover:rotate-12" />
-                <h3 className="mb-3 text-xl font-semibold group-hover:text-primary">{service.title}</h3>
-                <p className="leading-relaxed text-muted-foreground">{service.description}</p>
+                <h3 className="mb-3 text-xl font-semibold group-hover:text-primary">
+                  {service.title}
+                </h3>
+                <p className="leading-relaxed text-muted-foreground">
+                  {service.description}
+                </p>
               </Card>
             ))}
           </div>
           <div className="mt-16 text-center">
-            <Button asChild variant="outline" size="lg" className="px-8 rounded-full hover:bg-primary/5">
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="px-8 rounded-full hover:bg-primary/5"
+            >
               <Link href={ROUTES.SERVICES}>View All Services</Link>
             </Button>
           </div>
@@ -131,12 +166,15 @@ export default async function Home() {
             <div className="inline-flex items-center px-4 py-2 mb-6 text-sm rounded-full bg-primary/10 text-primary dark:text-white">
               🎨 Our Work
             </div>
-            <h2 className="mb-6 text-4xl font-bold md:text-5xl">Featured Projects</h2>
-            <p className="max-w-3xl mx-auto text-xl text-muted-foreground">Showcasing our latest work and innovative solutions</p>
+            <h2 className="mb-6 text-4xl font-bold md:text-5xl">
+              Featured Projects
+            </h2>
+            <p className="max-w-3xl mx-auto text-xl text-muted-foreground">
+              Showcasing our latest work and innovative solutions
+            </p>
           </div>
           <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
-            {PROJECTS.
-              filter(project => project.featured)
+            {PROJECTS.filter((project) => project.featured)
               .slice(0, 3)
               .map((project, i) => (
                 <Card
@@ -157,7 +195,10 @@ export default async function Home() {
                     />
                   </div>
                   <div className="p-8">
-                    <Link href={`${ROUTES.PORTFOLIO}/${project.slug}`} className="mb-3 text-xl font-semibold group-hover:text-primary">
+                    <Link
+                      href={`${ROUTES.PORTFOLIO}/${project.slug}`}
+                      className="mb-3 text-xl font-semibold group-hover:text-primary"
+                    >
                       {project.title}
                     </Link>
                     <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
@@ -165,7 +206,10 @@ export default async function Home() {
                     </p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.tech.slice(0, 3).map((tech, i) => (
-                        <span key={i} className="px-2 py-1 text-xs rounded bg-secondary/50 text-muted-foreground">
+                        <span
+                          key={i}
+                          className="px-2 py-1 text-xs rounded bg-secondary/50 text-muted-foreground"
+                        >
                           {tech}
                         </span>
                       ))}
@@ -180,7 +224,12 @@ export default async function Home() {
               ))}
           </div>
           <div className="mt-16 text-center">
-            <Button asChild variant="outline" size="lg" className="px-8 rounded-full hover:bg-primary/5">
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="px-8 rounded-full hover:bg-primary/5"
+            >
               <Link href={ROUTES.PORTFOLIO}>View Full Portfolio</Link>
             </Button>
           </div>
@@ -190,18 +239,25 @@ export default async function Home() {
       {/* Blog Section */}
       <section className="py-24 bg-secondary">
         <div className="container px-4">
-          <div className="mb-20 text-center" data-aos="fade-up" data-aos-duration="1000">
+          <div
+            className="mb-20 text-center"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+          >
             <div className="inline-flex items-center px-4 py-2 mb-6 text-sm rounded-full bg-primary/10 text-primary dark:text-white">
               📚 Latest Insights
             </div>
-            <h2 className="mb-6 text-4xl font-bold md:text-5xl">From Our Blog</h2>
+            <h2 className="mb-6 text-4xl font-bold md:text-5xl">
+              From Our Blog
+            </h2>
             <p className="max-w-3xl mx-auto text-xl text-muted-foreground">
-              Stay updated with the latest trends, tutorials, and insights from our team
+              Stay updated with the latest trends, tutorials, and insights from
+              our team
             </p>
           </div>
           <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
             {blogs
-              .filter(post => post.sticky)
+              .filter((post) => post.sticky)
               .map((post, index) => (
                 <div
                   key={post.id}
@@ -213,7 +269,12 @@ export default async function Home() {
               ))}
           </div>
           <div className="mt-16 text-center">
-            <Button asChild variant="outline" size="lg" className="px-8 rounded-full hover:bg-primary/5">
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="px-8 rounded-full hover:bg-primary/5"
+            >
               <Link href={ROUTES.BLOGS}>View All Articles</Link>
             </Button>
           </div>
@@ -243,20 +304,40 @@ export default async function Home() {
       </section> */}
 
       {/* CTA */}
-      <section className="py-24 hero-gradient" data-aos="zoom-in-up" data-aos-duration="1000">
+      <section
+        className="py-24 hero-gradient"
+        data-aos="zoom-in-up"
+        data-aos-duration="1000"
+      >
         <div className="container px-4 text-center">
-          <h2 className="mb-8 text-4xl font-bold md:text-5xl">Ready to Build Something Amazing? 🚀</h2>
+          <h2 className="mb-8 text-4xl font-bold md:text-5xl">
+            Ready to Build Something Amazing? 🚀
+          </h2>
           <p className="max-w-2xl mx-auto mb-12 text-xl text-muted-foreground">
-            Let&apos;s discuss your project and turn your ideas into reality with our expert team
+            Let&apos;s discuss your project and turn your ideas into reality
+            with our expert team
           </p>
           <div className="flex flex-col justify-center gap-6 sm:flex-row">
-            <Button asChild size="lg" className="px-10 py-6 text-lg rounded-full cta-button group dark:text-white" data-aos="fade-up" data-aos-delay="300" >
+            <Button
+              asChild
+              size="lg"
+              className="px-10 py-6 text-lg rounded-full cta-button group dark:text-white"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
               <Link href={ROUTES.CONTACT}>
                 <span>Get Started Today</span>
                 <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="px-10 py-6 text-lg rounded-full hover:bg-primary/5" data-aos="fade-up" data-aos-delay="500">
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="px-10 py-6 text-lg rounded-full hover:bg-primary/5"
+              data-aos="fade-up"
+              data-aos-delay="500"
+            >
               <Link href={ROUTES.ABOUT}>Learn About Us</Link>
             </Button>
           </div>

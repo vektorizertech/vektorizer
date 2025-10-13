@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { ArrowRight, Moon, Sun } from "lucide-react";
 import { ROUTES } from "@/data/routes";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 // import Image from "next/image";
 
@@ -36,7 +37,9 @@ const Navbar = () => {
   useEffect(() => {
     // Check for saved theme preference or default to light
     const savedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
 
     if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
       setIsDark(true);
@@ -65,20 +68,26 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <nav className={cn(
-      "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-500 ease-out",
-      isScrolled ? "sm:py-2 px-0 sm:px-6" : "p-0"
-    )}>
-      <div className={cn(
-        "mx-auto w-full transition-all duration-500 ease-out relative",
-        isScrolled
-          ? "max-w-5xl sm:rounded-full px-2 sm:px-8 py-2 shadow-2xl navbar-glass"
-          : "max-w-full px-4 sm:px-10 py-3 sm:py-5"
-      )}>
-
+    <nav
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-500 ease-out",
+        isScrolled ? "sm:py-2 px-0 sm:px-6" : "p-0"
+      )}
+    >
+      <div
+        className={cn(
+          "mx-auto w-full transition-all duration-500 ease-out relative",
+          isScrolled
+            ? "max-w-5xl sm:rounded-full px-2 sm:px-8 py-2 shadow-2xl navbar-glass"
+            : "max-w-full px-4 sm:px-10 py-3 sm:py-5"
+        )}
+      >
         <div className="flex items-center justify-between">
-          <Link href={ROUTES.HOME} className="flex items-center space-x-3 group">
-            <div className="group relative flex items-center space-x-0.5 overflow-hidden">
+          <Link
+            href={ROUTES.HOME}
+            className="flex items-center space-x-3 group"
+          >
+            <div className="group relative flex items-center justify-center space-x-0.5 overflow-hidden">
               {/* <Image
                 src="/logo.png"
                 alt="Vektorizer Logo"
@@ -86,20 +95,27 @@ const Navbar = () => {
                 height={1000}
                 className={cn(
                   "h-10 w-auto transition-transform duration-500 block dark:hidden",
-                  !isScrolled && "group-hover:animate-slide-rotate-slide will-change-transform"
-                )}
-              />
-              <Image
-                src="/logo-dark.png"
-                alt="Vektorizer Logo"
-                width={1000}
-                height={1000}
-                className={cn(
-                  "h-10 w-auto transition-transform duration-500 hidden dark:block",
-                  !isScrolled && "group-hover:animate-slide-rotate-slide will-change-transform"
+                  !isScrolled &&
+                    "group-hover:animate-slide-rotate-slide will-change-transform"
                 )}
               /> */}
-              <span className="mt-2 text-2xl font-bold transition-opacity duration-500 sm:text-3xl dark:text-gradient">
+              <Image
+                src="/images/logo/logo.svg"
+                alt="Vektorizer Logo"
+                width={100}
+                height={100}
+                className={cn(
+                  "h-10 w-auto transition-transform duration-500 hidden dark:block",
+                  !isScrolled &&
+                    "group-hover:animate-slide-rotate-slide will-change-transform"
+                )}
+              />
+              <span
+                className={cn(
+                  "text-base font-bold transition-all duration-500 sm:text-xl dark:text-gradient",
+                  isScrolled && "opacity-0 scale-90 -translate-y-1"
+                )}
+              >
                 Vektorizer
               </span>
             </div>
@@ -140,8 +156,14 @@ const Navbar = () => {
                 <Moon className="w-5 h-5 transition-transform rotate-0 duration-400 hover:-rotate-12" />
               )}
             </Button>
-            <Button asChild className="relative px-6 overflow-hidden rounded-full cta-button hover:scale-100 group">
-              <Link href={ROUTES.CONTACT} className="relative z-10 flex items-center space-x-1 dark:text-white">
+            <Button
+              asChild
+              className="relative px-6 overflow-hidden rounded-full cta-button hover:scale-100 group"
+            >
+              <Link
+                href={ROUTES.CONTACT}
+                className="relative z-10 flex items-center space-x-1 dark:text-white"
+              >
                 <span>Contact Us</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-400 group-hover:translate-x-1 group-hover:scale-110" />
               </Link>
@@ -156,24 +178,34 @@ const Navbar = () => {
               onClick={toggleTheme}
               className="transition-all duration-300 rounded-full hover:bg-primary/10"
             >
-              {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              {isDark ? (
+                <Sun className="w-5 h-5" />
+              ) : (
+                <Moon className="w-5 h-5" />
+              )}
             </Button>
             <button
               className="flex flex-col justify-center items-center w-8 h-8 space-y-1.5"
               onClick={() => setIsOpen(!isOpen)}
             >
-              <span className={cn(
-                "bg-current w-7 h-0.5 rounded-full transition-all duration-400",
-                isOpen && "rotate-45 translate-y-2.5"
-              )} />
-              <span className={cn(
-                "bg-current w-7 h-0.5 rounded-full transition-all duration-400",
-                isOpen && "opacity-0 scale-0"
-              )} />
-              <span className={cn(
-                "bg-current w-7 h-0.5 rounded-full transition-all duration-400",
-                isOpen && "-rotate-45 -translate-y-2.5"
-              )} />
+              <span
+                className={cn(
+                  "bg-current w-7 h-0.5 rounded-full transition-all duration-400",
+                  isOpen && "rotate-45 translate-y-2.5"
+                )}
+              />
+              <span
+                className={cn(
+                  "bg-current w-7 h-0.5 rounded-full transition-all duration-400",
+                  isOpen && "opacity-0 scale-0"
+                )}
+              />
+              <span
+                className={cn(
+                  "bg-current w-7 h-0.5 rounded-full transition-all duration-400",
+                  isOpen && "-rotate-45 -translate-y-2.5"
+                )}
+              />
             </button>
           </div>
         </div>
@@ -188,7 +220,9 @@ const Navbar = () => {
                 onClick={() => setIsOpen(false)}
                 className={cn(
                   "block py-1 text-lg font-semibold transition-all duration-400 hover:text-primary hover:translate-x-3 animate-slide-in-left",
-                  pathname === item.path ? "text-primary" : "text-muted-foreground",
+                  pathname === item.path
+                    ? "text-primary"
+                    : "text-muted-foreground",
                   `animation-delay-${index * 100 + 100}`
                 )}
               >
