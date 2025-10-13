@@ -6,7 +6,7 @@ import { ROUTES } from "@/data/routes";
 import { EMAIL, LOCATION, PHONE, SOCIAL_LINKS } from "@/data/social";
 import Link from "next/link";
 import { SERVICES } from "@/data/services";
-// import Image from "next/image";
+import Image from "next/image";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -27,7 +27,7 @@ const Footer = () => {
         { name: "Testimonials", href: ROUTES.TESTIMONIALS },
         { name: "Blog", href: ROUTES.BLOGS },
         { name: "Contact", href: ROUTES.CONTACT },
-      ]
+      ],
     },
     {
       title: "Legal",
@@ -35,43 +35,39 @@ const Footer = () => {
         { name: "Privacy Policy", href: ROUTES.PRIVACY_POLICY },
         { name: "Terms of Service", href: ROUTES.TERMS_OF_SERVICE },
         { name: "Cookie Policy", href: ROUTES.COOKIE_POLICY },
-      ]
-    }
+      ],
+    },
   ];
 
   return (
     <footer className="border-t bg-gradient-to-br from-secondary via-background to-secondary border-border/40">
       <div className="container px-6 py-8 md:px-12 md:py-16">
-
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
           {/* Brand Section */}
           <div className="lg:col-span-2">
-
-            <Link href={ROUTES.HOME} className="flex items-center mb-6 space-x-3 group">
+            <Link
+              href={ROUTES.HOME}
+              className="flex items-center mb-6 space-x-3 group"
+            >
               <div className="group relative flex items-center space-x-0.5 overflow-hidden">
-                {/* <Image
-                  src="/logo.png"
-                  alt="Vektorizer Logo"
-                  width={1000}
-                  height={1000}
-                  className="block w-auto h-10 transition-transform duration-500 dark:hidden"
-                />
                 <Image
-                  src="/logo-dark.png"
+                  src="/images/logo/logo.svg"
                   alt="Vektorizer Logo"
-                  width={1000}
-                  height={1000}
-                  className="hidden w-auto h-10 transition-transform duration-500 dark:block"
-                /> */}
-                <span className="mt-2 text-2xl font-bold transition-opacity duration-500 sm:text-3xl  dark:text-gradient">
+                  width={100}
+                  height={100}
+                  className="h-10 w-auto transition-transform duration-500 hidden dark:block"
+                />
+                <span className="text-base font-bold transition-opacity duration-500 sm:text-xl  dark:text-gradient">
                   Vektorizer
                 </span>
               </div>
             </Link>
 
             <p className="mb-8 text-lg leading-relaxed text-muted-foreground">
-              Building digital brilliance through innovative solutions. We transform ideas into exceptional digital experiences that drive growth and success. 🚀
+              Building digital brilliance through innovative solutions. We
+              transform ideas into exceptional digital experiences that drive
+              growth and success. 🚀
             </p>
 
             {/* Contact Info */}
@@ -85,7 +81,7 @@ const Footer = () => {
               </a>
 
               <a
-                href={`tel:${PHONE.replace(/[^+\d]/g, '')}`}
+                href={`tel:${PHONE.replace(/[^+\d]/g, "")}`}
                 className="flex items-center space-x-3 transition-colors duration-300 text-muted-foreground hover:text-primary"
               >
                 <Phone className="w-5 h-5" />
@@ -123,7 +119,9 @@ const Footer = () => {
           {/* Links Sections */}
           {footerLinks.map((section, index) => (
             <div key={index}>
-              <h4 className="mb-6 text-lg font-semibold text-foreground">{section.title}</h4>
+              <h4 className="mb-6 text-lg font-semibold text-foreground">
+                {section.title}
+              </h4>
               <ul className="space-y-4">
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
@@ -146,10 +144,16 @@ const Footer = () => {
             © {currentYear} Vektorizer. All rights reserved.
           </p>
           <div className="items-center hidden space-x-6 text-sm text-muted-foreground md:flex">
-            <Link href={ROUTES.PRIVACY_POLICY} className="transition-colors duration-300 hover:text-primary">
+            <Link
+              href={ROUTES.PRIVACY_POLICY}
+              className="transition-colors duration-300 hover:text-primary"
+            >
               Privacy Policy
             </Link>
-            <Link href={ROUTES.TERMS_OF_SERVICE} className="transition-colors duration-300 hover:text-primary">
+            <Link
+              href={ROUTES.TERMS_OF_SERVICE}
+              className="transition-colors duration-300 hover:text-primary"
+            >
               Terms of Service
             </Link>
           </div>
