@@ -32,6 +32,95 @@ export const CATEGORIES = [
   "Fleet Management",
 ];
 
+// BTEVTA Project - Government Technical Education Platform
+const BTEVTA = {
+  slug: "btevta",
+  title: "BTEVTA - Balochistan Technical Education Portal",
+  subtitle:
+    "A comprehensive government portal for Balochistan Technical Education & Vocational Training Authority, empowering youth through modern technical skills and vocational training programs.",
+  thumbnail: "btevta.jpg",
+  website: "https://btevta.gob.pk",
+  featured: true,
+  images: false,
+  modules: [
+    {
+      title: "Government Portal Development",
+      isImageMobile: false,
+      description:
+        "Official government website for BTEVTA providing comprehensive information about technical education and vocational training programs in Balochistan province.",
+      points: [
+        "Official government portal design and development",
+        "Responsive design for accessibility across all devices",
+        "Government branding and official documentation",
+        "Multi-language support for local languages",
+        "Accessibility compliance for government standards",
+      ],
+    },
+    {
+      title: "Educational Program Management",
+      isImageMobile: false,
+      description:
+        "Comprehensive system for managing technical education programs, course offerings, and vocational training initiatives across Balochistan.",
+      points: [
+        "Technical education program catalog",
+        "Vocational training course management",
+        "Skills development program tracking",
+        "Industry-aligned curriculum information",
+        "Training center location and details",
+      ],
+    },
+    {
+      title: "Student Services & Admissions",
+      isImageMobile: false,
+      description:
+        "Digital platform for student admissions, enrollment processes, and educational services for technical and vocational training programs.",
+      points: [
+        "Online admission and enrollment system",
+        "Student registration and documentation",
+        "Course selection and scheduling",
+        "Academic progress tracking",
+        "Certificate and diploma management",
+      ],
+    },
+    {
+      title: "Youth Empowerment Initiative",
+      isImageMobile: false,
+      description:
+        "Digital platform supporting BTEVTA's mission to empower Balochistan youth through high-impact technical skills and modern vocational training.",
+      points: [
+        "Skills development program showcase",
+        "Employment opportunity integration",
+        "Industry partnership information",
+        "Success stories and testimonials",
+        "Career guidance and counseling resources",
+      ],
+    },
+    {
+      title: "Administrative Dashboard",
+      isImageMobile: false,
+      description:
+        "Comprehensive administrative system for managing educational programs, student data, and institutional operations.",
+      points: [
+        "Student enrollment and progress management",
+        "Program administration and scheduling",
+        "Faculty and staff management system",
+        "Resource allocation and planning",
+        "Performance analytics and reporting",
+      ],
+    },
+  ],
+  tech: [
+    "Government Portal",
+    "Web Development",
+    "Responsive Design",
+    "Content Management",
+    "Student Management System",
+    "Educational Technology",
+    "Government Standards",
+    "Accessibility Compliance",
+  ],
+};
+
 // Original Vektorizer Projects
 const BIMMER_TECH = {
   slug: "bimmer-tech",
@@ -694,6 +783,7 @@ const TRINACRIA_DESIGNS = {
 };
 
 const RAW_PROJECTS = [
+  BTEVTA,
   BIMMER_TECH,
   EYESMARTY,
   OPTIMUS_HEALTH,

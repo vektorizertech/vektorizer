@@ -1,9 +1,9 @@
-import { Code, Monitor, Users } from "lucide-react";
+// Icons are now handled as strings in the BootcampComponent
 
 const DATA_SCIENCE = {
-    title: "Data Engineering Bootcamp",
+    title: "Data Science Bootcamp",
     description:
-        "Data Engineering is the process of designing, building and maintaining data infrastructure and pipelines to collect, store and process large volumes of data efficiently. It supports data analysis, machine learning, and business intelligence by ensuring data is clean, accessible, and reliable. With the growth of big data, IoT, and AI, data engineering has become a critical role in modern organizations. The demand for skilled data engineers is rapidly increasing across industries. In the future, automation, real-time processing, and cloud-native technologies will likely define this field's evolution.",
+        "Data Science combines statistical analysis, machine learning, and domain expertise to extract insights from data. Learn to build predictive models, perform advanced analytics, and make data-driven decisions. Master Python, R, machine learning algorithms, and data visualization to become a skilled data scientist in today's data-driven world.",
     duration: "03 Months",
     schedule: "Wednesday, Thursday",
     startDate: "16 August, 2025",
@@ -23,25 +23,35 @@ const DATA_SCIENCE = {
             "Amir has trained over 100 professionals from top organizations like GSK, HBL, P&G, Marico, Easyss, UNCP, and Citi Bank, helping them acquire future-ready skills. Known for his interactive and hands-on teaching style, he delivers industry-relevant training that ensures practical and impactful learning.",
         subtitle: "Senior Data Engineer",
         badges: [
-            { text: "Data Consultant", icon: Users, color: "green" },
-            { text: "Big Data Analytics Expert", color: "blue" },
+            { text: "Data Consultant", icon: "Users", color: "green" },
+            { text: "Big Data Analytics Expert", icon: "Code", color: "blue" },
         ],
     },
     modules: [
-        { title: "Core Data Engineering Concepts" },
-        { title: "Python for Data Engineering" },
-        { title: "Scripting and Data Engineering with SQL" },
-        { title: "Data Wrangling" },
-        { title: "Cloud Computing" },
-        { title: "Data Visualization in Tableau" },
-        { title: "Real-Time Data Streaming" },
-        { title: "Data Pipelines Automation & Scheduling" },
-        { title: "Capstone Projects & Career Mentorship" },
+        { title: "Introduction to Data Science" },
+        { title: "Statistics and Probability" },
+        { title: "Python for Data Science" },
+        { title: "Data Manipulation with Pandas" },
+        { title: "Data Visualization" },
+        { title: "Machine Learning Fundamentals" },
+        { title: "Advanced Machine Learning" },
+        { title: "Deep Learning Basics" },
+        { title: "Data Science Projects & Portfolio" },
     ],
-    tools: [],
+    tools: [
+        { name: "Python", icon: "Code" },
+        { name: "Pandas", icon: "Code" },
+        { name: "NumPy", icon: "Code" },
+        { name: "Matplotlib", icon: "Code" },
+        { name: "Seaborn", icon: "Code" },
+        { name: "Scikit-learn", icon: "Code" },
+        { name: "TensorFlow", icon: "Code" },
+        { name: "Jupyter Notebook", icon: "Monitor" },
+        { name: "Git", icon: "Code" },
+    ],
     heroMessage:
-        "Start your journey to a global career in Data Engineering! Gain hands-on skills and become an industry-ready professional",
-    certificationTitle: "DATA ENGINEER",
+        "Start your journey to a global career in Data Science! Master machine learning and analytics",
+    certificationTitle: "DATA SCIENTIST",
 };
 
 const DATA_ANALYTICS = {
@@ -66,7 +76,7 @@ const DATA_ANALYTICS = {
         experience:
             "Amir has trained over 100 professionals from top organizations like GSK, HBL, PSO, Nokia, Etisalat, UNDP, and Citi Bank, helping them acquire future-ready skills. Known for his interactive and hands-on teaching style, He delivers industry-relevant training that ensures practical and impactful learning.",
         badges: [
-            { text: "Big Data Analytics Expert", icon: Users, color: "green" },
+            { text: "Big Data Analytics Expert", icon: "Users", color: "green" },
             { text: "Data Consultant", color: "blue" },
         ],
     },
@@ -207,16 +217,16 @@ const DATA_ANALYTICS = {
         },
     ],
     tools: [
-        { name: "Microsoft Excel", icon: Monitor },
-        { name: "SQL", icon: Code },
-        { name: "MySQL", icon: Monitor },
-        { name: "Python", icon: Code },
-        { name: "Pandas", icon: Code },
-        { name: "NumPy", icon: Code },
-        { name: "Matplotlib", icon: Code },
-        { name: "Seaborn", icon: Code },
-        { name: "Power BI", icon: Monitor },
-        { name: "Tableau", icon: Monitor },
+        { name: "Microsoft Excel", icon: "Monitor" },
+        { name: "SQL", icon: "Code" },
+        { name: "MySQL", icon: "Monitor" },
+        { name: "Python", icon: "Code" },
+        { name: "Pandas", icon: "Code" },
+        { name: "NumPy", icon: "Code" },
+        { name: "Matplotlib", icon: "Code" },
+        { name: "Seaborn", icon: "Code" },
+        { name: "Power BI", icon: "Monitor" },
+        { name: "Tableau", icon: "Monitor" },
     ],
 
     heroMessage:
@@ -247,7 +257,7 @@ const DATA_ENGINEERING = {
             "Amir has trained over 100 professionals from top organizations like GSK, HBL, P&G, Marico, Easyss, UNCP, and Citi Bank, helping them acquire future-ready skills. Known for his interactive and hands-on teaching style, he delivers industry-relevant training that ensures practical and impactful learning.",
         // subtitle: "Senior Data Engineer",
         // badges: [
-        //   { text: "Data Consultant", icon: Users, color: "green" },
+        //   { text: "Data Consultant", icon: "Users", color: "green" },
         //   { text: "Big Data Analytics Expert", color: "blue" },
         // ],
     },
@@ -738,16 +748,16 @@ const DATA_ENGINEERING = {
         },
     ],
     tools: [
-        { name: "Python", icon: Code },
-        { name: "SQL", icon: Code },
-        { name: "Apache Airflow", icon: Monitor },
-        { name: "Apache Kafka", icon: Monitor },
-        { name: "Tableau", icon: Monitor },
-        { name: "AWS", icon: Monitor },
-        { name: "PySpark", icon: Code },
-        { name: "MySQL", icon: Monitor },
-        { name: "Talend", icon: Monitor },
-        { name: "Git", icon: Code },
+        { name: "Python", icon: "Code" },
+        { name: "SQL", icon: "Code" },
+        { name: "Apache Airflow", icon: "Monitor" },
+        { name: "Apache Kafka", icon: "Monitor" },
+        { name: "Tableau", icon: "Monitor" },
+        { name: "AWS", icon: "Monitor" },
+        { name: "PySpark", icon: "Code" },
+        { name: "MySQL", icon: "Monitor" },
+        { name: "Talend", icon: "Monitor" },
+        { name: "Git", icon: "Code" },
     ],
     heroMessage:
         "Start your journey to a global career in Data Engineering! Gain hands-on skills and become an industry-ready professional",
@@ -776,7 +786,7 @@ const BUSINESS_ANALYTICS = {
         experience:
             "Amir has trained over 100 professionals from top organizations like GSK, HBL, PSO, Nokia, Etisalat, UNDP, and Citi Bank, helping them acquire future-ready skills. Known for his interactive and hands-on teaching style, He delivers industry-relevant training that ensures practical and impactful learning.",
         badges: [
-            { text: "Big Data Analytics Expert", icon: Users, color: "green" },
+            { text: "Big Data Analytics Expert", icon: "Users", color: "green" },
             { text: "Data Consultant", color: "blue" },
         ],
     },
@@ -918,46 +928,763 @@ const BUSINESS_ANALYTICS = {
     ],
     tools: [
         // Module 1: Introduction to Business Analytics
-        { name: "Draw.io / Lucidchart", icon: Monitor },
+        { name: "Draw.io / Lucidchart", icon: "Monitor" },
 
         // Module 2: Fundamentals of Data & Statistics
-        { name: "Microsoft Excel", icon: Monitor },
-        { name: "Python (for statistics)", icon: Code },
+        { name: "Microsoft Excel", icon: "Monitor" },
+        { name: "Python (for statistics)", icon: "Code" },
 
         // Module 3: Excel for Business Analytics
-        { name: "Microsoft Excel", icon: Monitor },
-        { name: "Google Sheets", icon: Monitor },
+        { name: "Microsoft Excel", icon: "Monitor" },
+        { name: "Google Sheets", icon: "Monitor" },
 
         // Module 4: SQL for Data Extraction
-        { name: "MySQL", icon: Monitor },
-        { name: "PostgreSQL", icon: Monitor },
-        { name: "SQL Server", icon: Monitor },
+        { name: "MySQL", icon: "Monitor" },
+        { name: "PostgreSQL", icon: "Monitor" },
+        { name: "SQL Server", icon: "Monitor" },
 
         // Module 5: Data Visualization & BI Tools
-        { name: "Power BI", icon: Monitor },
-        { name: "Tableau", icon: Monitor },
-        { name: "Looker Studio (Optional)", icon: Monitor },
+        { name: "Power BI", icon: "Monitor" },
+        { name: "Tableau", icon: "Monitor" },
+        { name: "Looker Studio (Optional)", icon: "Monitor" },
 
         // Module 6: Business Metrics & KPIs
-        { name: "Power BI", icon: Monitor },
-        { name: "Excel Dashboards", icon: Monitor },
+        { name: "Power BI", icon: "Monitor" },
+        { name: "Excel Dashboards", icon: "Monitor" },
 
         // Module 7: Introduction to Predictive Analytics
-        { name: "Python", icon: Code },
-        { name: "scikit-learn", icon: Code },
-        { name: "Jupyter Notebooks", icon: Monitor },
+        { name: "Python", icon: "Code" },
+        { name: "scikit-learn", icon: "Code" },
+        { name: "Jupyter Notebooks", icon: "Monitor" },
 
         // Module 8: Case Studies & Domain Applications
-        { name: "Industry Data Sets (Kaggle/UCI)", icon: Monitor },
+        { name: "Industry Data Sets (Kaggle/UCI)", icon: "Monitor" },
 
         // Module 9: Capstone Project & Career Prep
-        { name: "Git", icon: Code },
-        { name: "GitHub", icon: Code },
-        { name: "PowerPoint / Canva (Presentation)", icon: Monitor },
+        { name: "Git", icon: "Code" },
+        { name: "GitHub", icon: "Code" },
+        { name: "PowerPoint / Canva (Presentation)", icon: "Monitor" },
     ],
     heroMessage:
         "Start your journey to a global career in Data Engineering! Gain hands-on skills and become an industry-ready professional",
     certificationTitle: "DATA ANALYTICS EXPERT",
+};
+
+const MERN_STACK = {
+    title: "MERN Stack Development Bootcamp",
+    description:
+        "Master full-stack web development with MongoDB, Express.js, React, and Node.js. Build modern, scalable web applications from scratch and become a proficient full-stack developer. Learn industry best practices, deployment strategies, and real-world project development.",
+    duration: "04 Months",
+    schedule: "Monday, Wednesday, Friday",
+    startDate: "1 September, 2025",
+    format: "Online & Interactive",
+    price: "PKR 45,000",
+    days: "Days: Mon, Wed, Fri",
+    mode: "Mode: Online & Interactive",
+    starting: "Starting: 1 September, 2025",
+    category: "BECOME A CERTIFIED",
+    instructor: {
+        name: "MUHAMMAD UBAID UR REHMAN",
+        title: "Senior Full Stack Developer | MERN Stack Expert | Tech Lead",
+        image: "/images/courses/Amir Bhai-003.png",
+        bio: "Muhammad Ubaid is a seasoned full-stack developer with over 6 years of experience in building scalable web applications. He has worked with leading tech companies and has expertise in modern JavaScript frameworks and backend technologies.",
+        experience: "Ubaid has mentored over 200 developers and has built numerous production-ready applications. His teaching methodology focuses on practical, project-based learning that prepares students for real-world development challenges.",
+    },
+    modules: [
+        {
+            title: "Frontend Development with React",
+            description: "Master React.js and modern frontend development practices.",
+            subtopics: [
+                {
+                    category: "React Fundamentals",
+                    items: [
+                        "Components and JSX",
+                        "Props and State Management",
+                        "Event Handling and Forms",
+                        "React Hooks (useState, useEffect, useContext)",
+                    ],
+                },
+                {
+                    category: "Advanced React",
+                    items: [
+                        "Custom Hooks",
+                        "Context API and State Management",
+                        "React Router for Navigation",
+                        "Performance Optimization",
+                    ],
+                },
+            ],
+            tags: ["React", "JavaScript", "Frontend"],
+        },
+        {
+            title: "Backend Development with Node.js & Express",
+            description: "Build robust server-side applications and APIs.",
+            subtopics: [
+                {
+                    category: "Node.js Fundamentals",
+                    items: [
+                        "Node.js Runtime and NPM",
+                        "File System and Path Modules",
+                        "HTTP Module and Server Creation",
+                        "Asynchronous Programming",
+                    ],
+                },
+                {
+                    category: "Express.js Framework",
+                    items: [
+                        "Routing and Middleware",
+                        "RESTful API Development",
+                        "Authentication and Authorization",
+                        "Error Handling and Validation",
+                    ],
+                },
+            ],
+            tags: ["Node.js", "Express", "Backend", "API"],
+        },
+        {
+            title: "Database Management with MongoDB",
+            description: "Learn NoSQL database design and operations.",
+            subtopics: [
+                {
+                    category: "MongoDB Basics",
+                    items: [
+                        "Document-based Database Concepts",
+                        "CRUD Operations",
+                        "Data Modeling and Schema Design",
+                        "Indexing and Performance",
+                    ],
+                },
+            ],
+            tags: ["MongoDB", "Database", "NoSQL"],
+        },
+        {
+            title: "Full Stack Integration & Deployment",
+            description: "Connect frontend and backend, deploy applications.",
+            subtopics: [
+                {
+                    category: "Integration",
+                    items: [
+                        "API Integration with React",
+                        "State Management with Redux",
+                        "Authentication Flow",
+                        "File Upload and Management",
+                    ],
+                },
+                {
+                    category: "Deployment",
+                    items: [
+                        "Environment Configuration",
+                        "Cloud Deployment (Heroku, Vercel)",
+                        "Database Hosting (MongoDB Atlas)",
+                        "CI/CD Basics",
+                    ],
+                },
+            ],
+            tags: ["Deployment", "Integration", "DevOps"],
+        },
+    ],
+    tools: [
+        { name: "React", icon: "Code" },
+        { name: "Node.js", icon: "Code" },
+        { name: "Express.js", icon: "Code" },
+        { name: "MongoDB", icon: "Monitor" },
+        { name: "JavaScript", icon: "Code" },
+        { name: "HTML/CSS", icon: "Code" },
+        { name: "Git", icon: "Code" },
+        { name: "VS Code", icon: "Monitor" },
+        { name: "Postman", icon: "Monitor" },
+        { name: "Heroku", icon: "Monitor" },
+    ],
+    heroMessage:
+        "Become a Full Stack Developer! Master the MERN stack and build modern web applications",
+    certificationTitle: "MERN STACK DEVELOPER",
+};
+
+const DIGITAL_MARKETING = {
+    title: "Digital Marketing Bootcamp",
+    description:
+        "Master the art and science of digital marketing. Learn to create effective marketing campaigns, analyze data, and drive business growth through various digital channels. From social media marketing to SEO and paid advertising, become a complete digital marketing professional.",
+    duration: "03 Months",
+    schedule: "Tuesday, Thursday",
+    startDate: "15 September, 2025",
+    format: "Online & Interactive",
+    price: "PKR 35,000",
+    days: "Days: Tue, Thu",
+    mode: "Mode: Online & Interactive",
+    starting: "Starting: 15 September, 2025",
+    category: "BECOME A CERTIFIED",
+    instructor: {
+        name: "FARAZ KHAN",
+        title: "Digital Marketing Expert | Growth Hacker | Marketing Strategist",
+        image: "/images/courses/Amir Bhai-002.png",
+        bio: "Faraz Khan is a digital marketing expert with over 8 years of experience in helping businesses grow through strategic digital marketing. He has worked with startups and Fortune 500 companies, driving millions in revenue through data-driven marketing campaigns.",
+        experience: "Faraz has trained over 500 marketing professionals and has managed marketing budgets exceeding $2M. His expertise spans across all digital marketing channels with a focus on ROI-driven strategies.",
+    },
+    modules: [
+        {
+            title: "Digital Marketing Fundamentals",
+            description: "Understanding the digital marketing landscape and consumer behavior.",
+            subtopics: [
+                {
+                    category: "Marketing Basics",
+                    items: [
+                        "Digital Marketing Overview",
+                        "Consumer Journey and Touchpoints",
+                        "Marketing Funnel and Conversion",
+                        "KPIs and Metrics",
+                    ],
+                },
+            ],
+            tags: ["Marketing", "Strategy", "Analytics"],
+        },
+        {
+            title: "Search Engine Optimization (SEO)",
+            description: "Master organic search visibility and website optimization.",
+            subtopics: [
+                {
+                    category: "SEO Fundamentals",
+                    items: [
+                        "Keyword Research and Analysis",
+                        "On-Page SEO Optimization",
+                        "Technical SEO",
+                        "Link Building Strategies",
+                    ],
+                },
+            ],
+            tags: ["SEO", "Content", "Analytics"],
+        },
+        {
+            title: "Social Media Marketing",
+            description: "Build brand presence and engage audiences on social platforms.",
+            subtopics: [
+                {
+                    category: "Social Media Strategy",
+                    items: [
+                        "Platform-Specific Strategies",
+                        "Content Creation and Curation",
+                        "Community Management",
+                        "Social Media Advertising",
+                    ],
+                },
+            ],
+            tags: ["Social Media", "Content", "Advertising"],
+        },
+        {
+            title: "Paid Advertising (PPC)",
+            description: "Master Google Ads, Facebook Ads, and other paid channels.",
+            subtopics: [
+                {
+                    category: "PPC Campaigns",
+                    items: [
+                        "Google Ads Setup and Management",
+                        "Facebook and Instagram Ads",
+                        "Campaign Optimization",
+                        "Budget Management and ROI",
+                    ],
+                },
+            ],
+            tags: ["PPC", "Google Ads", "Facebook Ads"],
+        },
+        {
+            title: "Email Marketing & Automation",
+            description: "Build effective email campaigns and marketing automation.",
+            subtopics: [
+                {
+                    category: "Email Marketing",
+                    items: [
+                        "Email Campaign Strategy",
+                        "List Building and Segmentation",
+                        "Automation Workflows",
+                        "A/B Testing and Optimization",
+                    ],
+                },
+            ],
+            tags: ["Email Marketing", "Automation", "CRM"],
+        },
+        {
+            title: "Analytics & Data-Driven Marketing",
+            description: "Measure, analyze, and optimize marketing performance.",
+            subtopics: [
+                {
+                    category: "Marketing Analytics",
+                    items: [
+                        "Google Analytics Setup and Analysis",
+                        "Conversion Tracking",
+                        "Attribution Modeling",
+                        "Reporting and Insights",
+                    ],
+                },
+            ],
+            tags: ["Analytics", "Data", "Reporting"],
+        },
+    ],
+    tools: [
+        { name: "Google Analytics", icon: "Monitor" },
+        { name: "Google Ads", icon: "Monitor" },
+        { name: "Facebook Ads Manager", icon: "Monitor" },
+        { name: "SEMrush", icon: "Monitor" },
+        { name: "Mailchimp", icon: "Monitor" },
+        { name: "Hootsuite", icon: "Monitor" },
+        { name: "Canva", icon: "Monitor" },
+        { name: "WordPress", icon: "Monitor" },
+        { name: "Google Tag Manager", icon: "Monitor" },
+        { name: "Hotjar", icon: "Monitor" },
+    ],
+    heroMessage:
+        "Launch your Digital Marketing career! Master all channels and become a growth-driven marketer",
+    certificationTitle: "DIGITAL MARKETING EXPERT",
+};
+
+const CYBER_SECURITY = {
+    title: "Cyber Security Bootcamp",
+    description:
+        "Cyber Security is the practice of protecting systems, networks, and data from digital attacks, unauthorized access, and cyber threats. This field focuses on implementing defensive measures, monitoring systems for vulnerabilities, and responding to incidents in real time. As cyber threats grow more complex, skilled professionals are in high demand to safeguard sensitive information and maintain digital trust across industries.",
+    duration: "03 Months",
+    schedule: "Monday, Wednesday, Friday",
+    startDate: "16 August, 2025",
+    format: "Online & Interactive",
+    price: "PKR 40,000",
+    days: "Days: Mon, Wed, Fri",
+    mode: "Mode: Online & Interactive",
+    starting: "Starting: 16 August, 2025",
+    category: "BECOME A CERTIFIED",
+    instructor: {
+        name: "KHURRAM SHAHID",
+        title: "Cyber Security Expert | Ethical Hacker | Security Consultant | Protecting Digital Assets",
+        image: "/images/courses/Amir Bhai-001.png",
+        bio: "Khurram Shahid is a seasoned Cyber Security professional with extensive experience in protecting organizations from digital threats. He specializes in ethical hacking, penetration testing, and security architecture design.",
+        experience: "Khurram has helped secure numerous organizations and has trained over 150 professionals in cyber security best practices. His hands-on approach ensures students learn both defensive and offensive security techniques.",
+    },
+    modules: [
+        {
+            title: "Introduction to Cyber Security",
+            description: "Foundation concepts and principles of cyber security.",
+            subtopics: [
+                {
+                    category: "Core Concepts",
+                    items: [
+                        "Overview of cyber security concepts",
+                        "Types of cyber threats & attacks",
+                        "Importance of cyber security in the digital world",
+                        "Cyber security principles: CIA Triad (Confidentiality, Integrity, Availability)",
+                    ],
+                },
+            ],
+            tags: ["Security", "Fundamentals", "CIA Triad"],
+        },
+        {
+            title: "Networking Fundamentals",
+            description: "Understanding network protocols and security.",
+            subtopics: [
+                {
+                    category: "Network Basics",
+                    items: [
+                        "OSI & TCP/IP models",
+                        "IP addressing, DNS, ports & protocols",
+                        "Firewalls, proxies, and VPNs",
+                        "Network devices and security zones",
+                    ],
+                },
+            ],
+            tags: ["Networking", "Protocols", "Firewalls"],
+        },
+        {
+            title: "Ethical Hacking & Penetration Testing",
+            description: "Learn ethical hacking techniques and penetration testing.",
+            subtopics: [
+                {
+                    category: "Ethical Hacking",
+                    items: [
+                        "Phases of ethical hacking",
+                        "Footprinting, scanning, enumeration",
+                        "Exploitation and post-exploitation techniques",
+                        "Kali Linux and Metasploit framework",
+                    ],
+                },
+            ],
+            tags: ["Ethical Hacking", "Penetration Testing", "Kali Linux"],
+        },
+    ],
+    tools: [
+        { name: "Kali Linux", icon: "Monitor" },
+        { name: "Metasploit", icon: "Code" },
+        { name: "Wireshark", icon: "Monitor" },
+        { name: "Nmap", icon: "Monitor" },
+        { name: "Burp Suite", icon: "Monitor" },
+        { name: "OWASP ZAP", icon: "Monitor" },
+        { name: "Python", icon: "Code" },
+        { name: "Git", icon: "Code" },
+    ],
+    heroMessage:
+        "Start your journey to a global career in Cyber Security! Gain hands-on skills and become an industry-ready professional",
+    certificationTitle: "CYBER SECURITY EXPERT",
+};
+
+const MOBILE_DEVELOPMENT = {
+    title: "Mobile App Development (React Native)",
+    description:
+        "A React Native Mobile App Developer specializes in building cross-platform mobile applications for iOS and Android using JavaScript and the React Native framework. They create high-performance, user-friendly apps with native-like experiences, handling everything from UI design to backend integration.",
+    duration: "03 Months",
+    schedule: "Monday, Wednesday, Friday",
+    startDate: "16 August, 2025",
+    format: "Online & Interactive",
+    price: "PKR 40,000",
+    days: "Days: Mon, Wed, Fri",
+    mode: "Mode: Online & Interactive",
+    starting: "Starting: 16 August, 2025",
+    category: "BECOME A CERTIFIED",
+    instructor: {
+        name: "KHURRAM SHAHID",
+        title: "Mobile App Development Expert | React Native Specialist | Industry Mentor",
+        image: "/images/courses/Amir Bhai-002.png",
+        bio: "Khurram Shahid is a skilled Mobile App Developer with extensive experience in building cross-platform mobile applications using React Native. With a strong foundation in frontend and backend integration, he has delivered high-performance apps for startups and enterprises alike.",
+        experience: "He has successfully trained professionals from leading organizations and has a passion for simplifying complex concepts through project-based learning. Known for his interactive sessions, Khurram ensures that learners build production-ready mobile applications.",
+    },
+    modules: [
+        {
+            title: "React Native Fundamentals",
+            description: "Master the basics of React Native development.",
+            subtopics: [
+                {
+                    category: "Getting Started",
+                    items: [
+                        "What is React Native?",
+                        "Cross-platform mobile development concepts",
+                        "Setting up development environment (Expo CLI & React Native CLI)",
+                        "Creating your first React Native app",
+                    ],
+                },
+            ],
+            tags: ["React Native", "Mobile", "Cross-platform"],
+        },
+        {
+            title: "Navigation and State Management",
+            description: "Learn navigation patterns and state management in React Native.",
+            subtopics: [
+                {
+                    category: "Navigation",
+                    items: [
+                        "Installing React Navigation",
+                        "Stack, Tab, Drawer navigation",
+                        "Passing data between screens",
+                        "Deep linking and screen transitions",
+                    ],
+                },
+                {
+                    category: "State Management",
+                    items: [
+                        "Context API",
+                        "Redux: Actions, Reducers, Store",
+                        "Using Redux Toolkit (RTK)",
+                        "Local storage (AsyncStorage)",
+                    ],
+                },
+            ],
+            tags: ["Navigation", "Redux", "State Management"],
+        },
+        {
+            title: "App Deployment & Advanced Features",
+            description: "Deploy apps and implement advanced mobile features.",
+            subtopics: [
+                {
+                    category: "Device APIs",
+                    items: [
+                        "Accessing device features: Camera, Geolocation, Vibration",
+                        "Push notifications (Firebase/OneSignal)",
+                        "Permissions and background tasks",
+                        "API Integration with REST and GraphQL",
+                    ],
+                },
+                {
+                    category: "Deployment",
+                    items: [
+                        "Building and deploying apps to Play Store & App Store",
+                        "App testing (manual & automated)",
+                        "Versioning, signing, and OTA updates",
+                        "Performance optimization",
+                    ],
+                },
+            ],
+            tags: ["Deployment", "Device APIs", "Performance"],
+        },
+    ],
+    tools: [
+        { name: "React Native", icon: "Monitor" },
+        { name: "JavaScript", icon: "Code" },
+        { name: "Expo", icon: "Monitor" },
+        { name: "React Navigation", icon: "Monitor" },
+        { name: "Redux Toolkit", icon: "Code" },
+        { name: "Firebase", icon: "Monitor" },
+        { name: "VS Code", icon: "Monitor" },
+        { name: "Git", icon: "Code" },
+    ],
+    heroMessage:
+        "Start your journey to a global career in Mobile App Development! Build cross-platform apps with React Native",
+    certificationTitle: "MOBILE APP DEVELOPER",
+};
+
+const WEB_DESIGN_DEVELOPMENT = {
+    title: "Web Design & Development Bootcamp",
+    description:
+        "Master the complete web development stack from frontend design to backend development. Learn modern web technologies, responsive design principles, and full-stack development practices to build professional websites and web applications.",
+    duration: "05 Months",
+    schedule: "Tuesday, Thursday, Saturday",
+    startDate: "16 August, 2025",
+    format: "Online & Interactive",
+    price: "PKR 40,000",
+    days: "Days: Tue, Thu, Sat",
+    mode: "Mode: Online & Interactive",
+    starting: "Starting: 16 August, 2025",
+    category: "BECOME A CERTIFIED",
+    instructor: {
+        name: "MUHAMMAD UBAID UR REHMAN",
+        title: "Full Stack Developer | Web Design Expert | UI/UX Specialist",
+        image: "/images/courses/Amir Bhai-003.png",
+        bio: "Muhammad Ubaid is a full-stack web developer with expertise in modern web technologies and design principles. He has created numerous websites and web applications for various industries.",
+        experience: "Ubaid has trained over 300 students in web development and design. His comprehensive approach covers both technical skills and design thinking, ensuring students can create both functional and beautiful web experiences.",
+    },
+    modules: [
+        {
+            title: "Frontend Development Fundamentals",
+            description: "Master HTML, CSS, and JavaScript for modern web development.",
+            subtopics: [
+                {
+                    category: "Core Technologies",
+                    items: [
+                        "HTML5 semantic markup and structure",
+                        "CSS3 styling, animations, and responsive design",
+                        "JavaScript ES6+ fundamentals and DOM manipulation",
+                        "Modern CSS frameworks (Bootstrap, Tailwind CSS)",
+                    ],
+                },
+            ],
+            tags: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+        },
+        {
+            title: "Modern Frontend Frameworks",
+            description: "Learn React.js and modern frontend development practices.",
+            subtopics: [
+                {
+                    category: "React Development",
+                    items: [
+                        "React components, props, and state",
+                        "React Hooks and lifecycle methods",
+                        "State management with Context API",
+                        "React Router for single-page applications",
+                    ],
+                },
+            ],
+            tags: ["React", "Components", "SPA"],
+        },
+        {
+            title: "Backend Development & Deployment",
+            description: "Build server-side applications and deploy web projects.",
+            subtopics: [
+                {
+                    category: "Backend Basics",
+                    items: [
+                        "Node.js and Express.js fundamentals",
+                        "RESTful API development",
+                        "Database integration (MongoDB, MySQL)",
+                        "Authentication and authorization",
+                    ],
+                },
+                {
+                    category: "Deployment",
+                    items: [
+                        "Version control with Git and GitHub",
+                        "Web hosting and domain management",
+                        "Cloud deployment (Netlify, Vercel, Heroku)",
+                        "Performance optimization and SEO",
+                    ],
+                },
+            ],
+            tags: ["Node.js", "APIs", "Deployment", "Git"],
+        },
+    ],
+    tools: [
+        { name: "HTML5", icon: "Code" },
+        { name: "CSS3", icon: "Code" },
+        { name: "JavaScript", icon: "Code" },
+        { name: "React", icon: "Code" },
+        { name: "Node.js", icon: "Code" },
+        { name: "MongoDB", icon: "Monitor" },
+        { name: "Git", icon: "Code" },
+        { name: "VS Code", icon: "Monitor" },
+        { name: "Figma", icon: "Monitor" },
+        { name: "Bootstrap", icon: "Code" },
+    ],
+    heroMessage:
+        "Master Web Design & Development! Create stunning, responsive websites and web applications",
+    certificationTitle: "WEB DEVELOPER",
+};
+
+const BUSINESS_DEVELOPMENT = {
+    title: "Business Development Bootcamp",
+    description:
+        "Learn strategic business development skills to drive growth, build partnerships, and create value for organizations. Master the art of identifying opportunities, developing business strategies, and executing growth initiatives in today's competitive market.",
+    duration: "01 Month",
+    schedule: "Thursday, Friday",
+    startDate: "16 August, 2025",
+    format: "Online & Interactive",
+    price: "PKR 20,000",
+    days: "Days: Thu, Fri",
+    mode: "Mode: Online & Interactive",
+    starting: "Starting: 16 August, 2025",
+    category: "BECOME A CERTIFIED",
+    instructor: {
+        name: "AMIR JABBAR",
+        title: "Business Development Expert | Strategic Growth Consultant | Market Analysis Specialist",
+        image: "/images/courses/Amir Bhai-001.png",
+        bio: "Amir Jabbar is a seasoned business development professional with extensive experience in driving organizational growth and building strategic partnerships across various industries.",
+        experience: "Amir has helped numerous startups and established companies achieve significant growth through strategic business development initiatives. His practical approach focuses on real-world application of business development principles.",
+    },
+    modules: [
+        {
+            title: "Business Development Fundamentals",
+            description: "Core concepts and strategies for business growth.",
+            subtopics: [
+                {
+                    category: "Strategy & Planning",
+                    items: [
+                        "Business development vs sales: key differences",
+                        "Market research and opportunity identification",
+                        "Competitive analysis and positioning",
+                        "Business model development and validation",
+                    ],
+                },
+            ],
+            tags: ["Strategy", "Market Research", "Business Models"],
+        },
+        {
+            title: "Partnership & Relationship Building",
+            description: "Build strategic partnerships and maintain business relationships.",
+            subtopics: [
+                {
+                    category: "Partnerships",
+                    items: [
+                        "Identifying and evaluating potential partners",
+                        "Negotiation strategies and deal structuring",
+                        "Partnership agreements and legal considerations",
+                        "Managing and nurturing business relationships",
+                    ],
+                },
+            ],
+            tags: ["Partnerships", "Negotiation", "Relationships"],
+        },
+        {
+            title: "Growth Execution & Metrics",
+            description: "Execute growth strategies and measure success.",
+            subtopics: [
+                {
+                    category: "Execution",
+                    items: [
+                        "Growth hacking techniques and methodologies",
+                        "KPI development and performance tracking",
+                        "Revenue optimization strategies",
+                        "Scaling business operations effectively",
+                    ],
+                },
+            ],
+            tags: ["Growth Hacking", "KPIs", "Revenue", "Scaling"],
+        },
+    ],
+    tools: [
+        { name: "CRM Systems", icon: "Monitor" },
+        { name: "Google Analytics", icon: "Monitor" },
+        { name: "LinkedIn Sales Navigator", icon: "Monitor" },
+        { name: "HubSpot", icon: "Monitor" },
+        { name: "Salesforce", icon: "Monitor" },
+        { name: "Excel", icon: "Monitor" },
+        { name: "PowerPoint", icon: "Monitor" },
+        { name: "Slack", icon: "Monitor" },
+    ],
+    heroMessage:
+        "Accelerate your Business Development career! Master growth strategies and partnership building",
+    certificationTitle: "BUSINESS DEVELOPMENT SPECIALIST",
+};
+
+const AIRLINE_RESERVATION = {
+    title: "Airline Reservation System Bootcamp",
+    description:
+        "Master the airline industry's reservation systems and travel technology. Learn to operate Global Distribution Systems (GDS), understand airline operations, and develop skills in travel booking, ticketing, and customer service in the aviation industry.",
+    duration: "02 Months",
+    schedule: "Monday, Friday",
+    startDate: "16 August, 2025",
+    format: "Online & Interactive",
+    price: "PKR 25,000",
+    days: "Days: Mon, Fri",
+    mode: "Mode: Online & Interactive",
+    starting: "Starting: 16 August, 2025",
+    category: "BECOME A CERTIFIED",
+    instructor: {
+        name: "M S KHAN YOUSAFZAI",
+        title: "Aviation Industry Expert | GDS Specialist | Travel Technology Consultant",
+        image: "/images/courses/Amir Bhai-002.png",
+        bio: "M S Khan Yousafzai is an experienced aviation professional with deep expertise in airline reservation systems, GDS operations, and travel industry technology.",
+        experience: "With over 15 years in the aviation industry, Khan has trained hundreds of professionals in airline operations and reservation systems. His practical experience covers all major GDS platforms and airline operational procedures.",
+    },
+    modules: [
+        {
+            title: "Aviation Industry Overview",
+            description: "Understanding the airline industry and its ecosystem.",
+            subtopics: [
+                {
+                    category: "Industry Basics",
+                    items: [
+                        "Airline industry structure and key players",
+                        "IATA codes, airport codes, and airline designators",
+                        "Aircraft types and seating configurations",
+                        "Airline alliances and partnerships",
+                    ],
+                },
+            ],
+            tags: ["Aviation", "IATA", "Airlines"],
+        },
+        {
+            title: "Global Distribution Systems (GDS)",
+            description: "Master GDS operations for airline reservations.",
+            subtopics: [
+                {
+                    category: "GDS Operations",
+                    items: [
+                        "Introduction to Amadeus, Sabre, and Galileo",
+                        "Flight search and availability checking",
+                        "Booking creation and modification",
+                        "Ticketing and payment processing",
+                    ],
+                },
+            ],
+            tags: ["GDS", "Amadeus", "Sabre", "Booking"],
+        },
+        {
+            title: "Customer Service & Operations",
+            description: "Provide excellent customer service in airline operations.",
+            subtopics: [
+                {
+                    category: "Service Excellence",
+                    items: [
+                        "Handling customer inquiries and complaints",
+                        "Baggage policies and special services",
+                        "Flight changes, cancellations, and refunds",
+                        "Travel documentation and visa requirements",
+                    ],
+                },
+            ],
+            tags: ["Customer Service", "Operations", "Travel Documentation"],
+        },
+    ],
+    tools: [
+        { name: "Amadeus GDS", icon: "Monitor" },
+        { name: "Sabre GDS", icon: "Monitor" },
+        { name: "Galileo GDS", icon: "Monitor" },
+        { name: "IATA BSP", icon: "Monitor" },
+        { name: "Airline CRS", icon: "Monitor" },
+        { name: "Travel Portal", icon: "Monitor" },
+    ],
+    heroMessage:
+        "Launch your Aviation career! Master airline reservation systems and travel technology",
+    certificationTitle: "AIRLINE RESERVATION SPECIALIST",
 };
 
 export const COURSES = [
@@ -965,4 +1692,11 @@ export const COURSES = [
     DATA_ANALYTICS,
     DATA_ENGINEERING,
     BUSINESS_ANALYTICS,
+    MERN_STACK,
+    DIGITAL_MARKETING,
+    CYBER_SECURITY,
+    MOBILE_DEVELOPMENT,
+    WEB_DESIGN_DEVELOPMENT,
+    BUSINESS_DEVELOPMENT,
+    AIRLINE_RESERVATION,
 ];
