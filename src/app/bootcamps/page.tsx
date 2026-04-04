@@ -7,17 +7,36 @@ import { COURSES } from "@/data/bootcamps";
 import { ROUTES } from "@/data/routes";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { bootcampSchema, generateBreadcrumbSchema } from "@/utils/schema";
 
 const CourseCardsGrid = () => {
     const router = useRouter();
     const coursesRef = useRef(null);
 
+    const breadcrumbs = [
+        { name: "Home", url: "https://vektorizer.com/" },
+        { name: "Bootcamps", url: "https://vektorizer.com/bootcamps" },
+    ];
+
     const handleEnrollClick = (courseTitle: string) => {
-        router.push(`${ROUTES.BOOTCAMPS}/${encodeURIComponent(courseTitle)}`);
+        const slug = courseTitle.toLowerCase().replace(/\s+/g, '-');
+        router.push(`${ROUTES.BOOTCAMPS}/${encodeURIComponent(slug)}`);
     };
 
     return (
         <div className="min-h-screen py-40 bg-background text-foreground">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(bootcampSchema),
+                }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(generateBreadcrumbSchema(breadcrumbs)),
+                }}
+            />
             <div ref={coursesRef}>
                 <div className="max-w-7xl mx-auto">
                     {/* Header */}

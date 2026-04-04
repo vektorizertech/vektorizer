@@ -3,8 +3,9 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { ArrowRight, Moon, Sun } from "lucide-react";
+import { ArrowRight, Moon, Sun, ChevronDown } from "lucide-react";
 import { ROUTES } from "@/data/routes";
+import { COURSES } from "@/data/bootcamps";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -12,6 +13,7 @@ import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isBootcampOpen, setIsBootcampOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const pathname = usePathname();
@@ -22,7 +24,14 @@ const Navbar = () => {
     { name: "About", path: ROUTES.ABOUT },
     { name: "Testimonials", path: ROUTES.TESTIMONIALS },
     { name: "Blogs", path: ROUTES.BLOGS },
-    // { name: "Bootcamps", path: ROUTES.BOOTCAMPS },
+  ];
+
+  const bootcampOptions = [
+    { name: "All Bootcamps", path: ROUTES.BOOTCAMPS },
+    ...COURSES.map((course) => ({
+      name: course.title,
+      path: `${ROUTES.BOOTCAMPS}/${encodeURIComponent(course.title.toLowerCase().replace(/\s+/g, '-'))}`,
+    })),
   ];
 
   useEffect(() => {
@@ -65,7 +74,23 @@ const Navbar = () => {
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
+    // Close bootcamp dropdown when mobile menu closes
+    if (!isOpen) {
+      setIsBootcampOpen(false);
+    }
   }, [isOpen]);
+
+  useEffect(() => {
+    // Close bootcamp dropdown when clicking outside
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isBootcampOpen && !(event.target as Element).closest('.bootcamp-dropdown')) {
+        setIsBootcampOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isBootcampOpen]);
 
   return (
     <nav
@@ -107,7 +132,7 @@ const Navbar = () => {
                 className={cn(
                   "h-10 w-auto transition-transform duration-500 hidden dark:block",
                   !isScrolled &&
-                    "group-hover:animate-slide-rotate-slide will-change-transform"
+                  "group-hover:animate-slide-rotate-slide will-change-transform"
                 )}
               />
               <span
@@ -140,6 +165,62 @@ const Navbar = () => {
                 <span className="absolute left-0 w-0 h-1 transition-all rounded-full opacity-50 -bottom-2 bg-gradient-to-r from-teal-600 to-green-600 blur-sm duration-400 group-hover:w-full" />
               </Link>
             ))}
+
+            {/* Bootcamps Dropdown */}
+            <div
+              className="relative group bootcamp-dropdown"
+              onMouseEnter={() => setIsBootcampOpen(true)}
+              onMouseLeave={() => setIsBootcampOpen(false)}
+            >
+              <button
+                className={cn(
+                  "text-sm font-semibold transition-all duration-400 hover:text-primary dark:hover:text-white relative group animate-fade-up flex items-center space-x-1",
+                  pathname.startsWith(ROUTES.BOOTCAMPS)
+                    ? "text-primary dark:text-white"
+                    : "text-muted-foreground hover:scale-105",
+                  "animation-delay-600"
+                )}
+              >
+                <span>Bootcamps</span>
+                <ChevronDown className={cn(
+                  "w-4 h-4 transition-transform duration-300",
+                  isBootcampOpen && "rotate-180"
+                )} />
+                <span className="absolute left-0 w-0 h-1 transition-all rounded-full -bottom-2 bg-gradient-to-r from-teal-600 to-green-600 duration-400 group-hover:w-full" />
+                <span className="absolute left-0 w-0 h-1 transition-all rounded-full opacity-50 -bottom-2 bg-gradient-to-r from-teal-600 to-green-600 blur-sm duration-400 group-hover:w-full" />
+              </button>
+
+              {/* Dropdown Menu */}
+              {isBootcampOpen && (
+                <div className="absolute top-full left-0 mt-2 w-80 bg-background/95 backdrop-blur-md border border-border/30 rounded-2xl shadow-2xl z-50 animate-fade-in-down">
+                  <div className="max-h-96 overflow-y-auto p-4 custom-scrollbar">
+                    <div className="grid gap-2">
+                      {bootcampOptions.map((option, index) => (
+                        <Link
+                          key={option.name}
+                          href={option.path}
+                          className={cn(
+                            "block px-4 py-3 text-sm font-medium rounded-xl transition-all duration-300 hover:bg-primary/10 hover:text-primary hover:translate-x-1",
+                            pathname === option.path
+                              ? "text-primary bg-primary/5"
+                              : "text-muted-foreground",
+                            index === 0 && "border-b border-border/30 mb-2 pb-3"
+                          )}
+                        >
+                          {option.name}
+                        </Link>
+                      ))}
+                    </div>
+                    {/* Scroll indicator - only show if content overflows */}
+                    {bootcampOptions.length > 8 && (
+                      <div className="flex justify-center mt-2 opacity-50">
+                        <ChevronDown className="w-4 h-4 animate-bounce" />
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Desktop Actions */}
@@ -229,6 +310,48 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
+
+            {/* Mobile Bootcamps Section */}
+            <div className="space-y-3">
+              <button
+                onClick={() => setIsBootcampOpen(!isBootcampOpen)}
+                className={cn(
+                  "flex items-center justify-between w-full py-1 text-lg font-semibold transition-all duration-400 hover:text-primary animate-slide-in-left",
+                  pathname.startsWith(ROUTES.BOOTCAMPS)
+                    ? "text-primary"
+                    : "text-muted-foreground",
+                  "animation-delay-600"
+                )}
+              >
+                <span>Bootcamps</span>
+                <ChevronDown className={cn(
+                  "w-5 h-5 transition-transform duration-300",
+                  isBootcampOpen && "rotate-180"
+                )} />
+              </button>
+
+              {isBootcampOpen && (
+                <div className="pl-4 space-y-2 animate-fade-in-down">
+                  {bootcampOptions.map((option, index) => (
+                    <Link
+                      key={option.name}
+                      href={option.path}
+                      onClick={() => setIsOpen(false)}
+                      className={cn(
+                        "block py-2 text-base font-medium transition-all duration-400 hover:text-primary hover:translate-x-2",
+                        pathname === option.path
+                          ? "text-primary"
+                          : "text-muted-foreground/80",
+                        index === 0 && "border-b border-border/30 pb-3 mb-2"
+                      )}
+                    >
+                      {option.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <Button
               asChild
               className="w-full mt-6 font-semibold text-white transition rounded-full shadow-lg bg-gradient-to-r from-emerald-600 to-teal-600 hover:scale-105"
