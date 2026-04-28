@@ -50,15 +50,15 @@ const Footer = () => {
               href={ROUTES.HOME}
               className="flex items-center mb-6 space-x-3 group"
             >
-              <div className="group relative flex items-center space-x-0.5 overflow-hidden">
+              <div className="group relative flex items-center space-x-2 overflow-hidden">
                 <Image
                   src="/images/logo/logo.svg"
                   alt="Vektorizer Logo"
                   width={100}
                   height={100}
-                  className="h-10 w-auto transition-transform duration-500 hidden dark:block"
+                  className="h-10 w-auto transition-transform duration-500"
                 />
-                <span className="text-base font-bold transition-opacity duration-500 sm:text-xl  dark:text-gradient">
+                <span className="text-base font-bold transition-opacity duration-500 sm:text-xl dark:text-gradient">
                   Vektorizer
                 </span>
               </div>

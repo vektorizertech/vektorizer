@@ -1,7 +1,7 @@
-// Icons are now handled as strings in the BootcampComponent
+// Icons are now handled as strings in the ExpertComponent
 
 const DATA_SCIENCE = {
-    title: "Data Science Bootcamp",
+    title: "Data Science Expert",
     description:
         "Data Science combines statistical analysis, machine learning, and domain expertise to extract insights from data. Learn to build predictive models, perform advanced analytics, and make data-driven decisions. Master Python, R, machine learning algorithms, and data visualization to become a skilled data scientist in today's data-driven world.",
     duration: "06 Months",
@@ -9,16 +9,16 @@ const DATA_SCIENCE = {
     startDate: "16 August, 2025",
     format: "Online & Interactive",
     price: "PKR 100,000",
-    days: "Days: Fri, Sat",
+    // days: "Days: Fri, Sat",
     mode: "Mode: Online & Interactive",
     starting: "Starting: 1 September, 2025",
     category: "BECOME A CERTIFIED",
     instructor: {
-        name: "AMIR JABBAR",
+        name: "AAMIR JABBAR",
         title:
             "Data Top Voice | Business Analyst @Engro Group | Keynote Speaker | Solving Business Problems with Data Analytics",
         image: "/api/placeholder/200/250",
-        bio: "Amir is a globally experienced Business Data Analyst, currently serving in the Business Strategy & Development department at Quasico Inc. He empowers organizations with data-driven insights and innovative solutions. With a strong track record in multinational companies, he has driven transformations through analytical techniques such as predictive modeling, statistical analysis, and data visualization.",
+        bio: "Aamir Jabbar is a globally experienced Business Data Analyst, currently serving in the Business Strategy & Development department at Quasico Inc. He empowers organizations with data-driven insights and innovative solutions. With a strong track record in multinational companies, he has driven transformations through analytical techniques such as predictive modeling, statistical analysis, and data visualization.",
         experience:
             "Amir has trained over 100 professionals from top organizations like GSK, HBL, P&G, Marico, Easyss, UNCP, and Citi Bank, helping them acquire future-ready skills. Known for his interactive and hands-on teaching style, he delivers industry-relevant training that ensures practical and impactful learning.",
         subtitle: "Senior Data Engineer",
@@ -55,7 +55,7 @@ const DATA_SCIENCE = {
 };
 
 const DATA_ANALYTICS = {
-    title: "Data Analytics Bootcamp",
+    title: "Data Analytics Expert",
     description:
         "Data Analytics is the process of examining, transforming, and interpreting data to uncover meaningful insights, patterns, and trends. It helps businesses make informed decisions, optimize performance, and predict future outcomes. Using tools like Excel, SQL, Power BI, and Python, data analysts turn raw data into actionable intelligence.",
     duration: "06 Months",
@@ -63,16 +63,16 @@ const DATA_ANALYTICS = {
     startDate: "16 August, 2025",
     format: "Online & Interactive",
     price: "PKR 60,000",
-    days: "Days: Fri, Sat",
+    // days: "Days: Fri, Sat",
     mode: "Mode: Online & Interactive",
     starting: "Starting: 1 September, 2025",
     category: "BECOME A CERTIFIED",
     instructor: {
-        name: "AMir Jabbar",
+        name: "AAMIR JABBAR",
         title:
             "Data Top Voice | Business Analyst @Engro Group | Keynote Speaker | Solving Business Problems with Data Analytics",
         image: "/images/courses/Amir Bhai-002.png",
-        bio: "Amir is a globally experienced Business Data Analyst, currently serving in the Business Strategy & Development department at Quecko Inc. He empowers organizations with data-driven insights and innovative solutions. With a strong track record in multinational companies, He has driven transformations through analytical techniques such as customer analysis, churn analysis, and product- level analysis.",
+        bio: "Aamir Jabbar is a globally experienced Business Data Analyst, currently serving in the Business Strategy & Development department at Quecko Inc. He empowers organizations with data-driven insights and innovative solutions. With a strong track record in multinational companies, He has driven transformations through analytical techniques such as customer analysis, churn analysis, and product- level analysis.",
         experience:
             "Amir has trained over 100 professionals from top organizations like GSK, HBL, PSO, Nokia, Etisalat, UNDP, and Citi Bank, helping them acquire future-ready skills. Known for his interactive and hands-on teaching style, He delivers industry-relevant training that ensures practical and impactful learning.",
         badges: [
@@ -235,7 +235,7 @@ const DATA_ANALYTICS = {
 };
 
 const DATA_ENGINEERING = {
-    title: "Data Engineering Bootcamp",
+    title: "Data Engineering Expert",
     description:
         "Data Engineering is the process of designing, building and maintaining data infrastructure and pipelines to collect, store and process large volumes of data efficiently. It supports data analysis, machine learning, and business intelligence by ensuring data is clean, accessible, and reliable. With the growth of big data, IoT, and AI, data engineering has become a critical role in modern organizations. The demand for skilled data engineers is rapidly increasing across industries. In the future, automation, real-time processing, and cloud-native technologies will likely define this field's evolution.",
     duration: "06 Months",
@@ -243,16 +243,16 @@ const DATA_ENGINEERING = {
     startDate: "16 August, 2025",
     format: "Online & Interactive",
     price: "PKR 60,000",
-    days: "Days: Fri, Sat",
+    // days: "Days: Fri, Sat",
     mode: "Mode: Online & Interactive",
     starting: "Starting: 1 September, 2025",
     category: "BECOME A CERTIFIED",
     instructor: {
-        name: "AMIR JABBAR",
+        name: "AAMIR JABBAR",
         title:
             "Data Top Voice | Business Analyst @Engro Group | Keynote Speaker | Solving Business Problems with Data Analytics",
         image: "/images/courses/Amir Bhai-001.png",
-        bio: "Amir is a globally experienced Business Data Analyst, currently serving in the Business Strategy & Development department at Quasico Inc. He empowers organizations with data-driven insights and innovative solutions. With a strong track record in multinational companies, he has driven transformations through analytical techniques such as predictive modeling, statistical analysis, and data visualization.",
+        bio: "Aamir Jabbar is a globally experienced Business Data Analyst, currently serving in the Business Strategy & Development department at Quasico Inc. He empowers organizations with data-driven insights and innovative solutions. With a strong track record in multinational companies, he has driven transformations through analytical techniques such as predictive modeling, statistical analysis, and data visualization.",
         experience:
             "Amir has trained over 100 professionals from top organizations like GSK, HBL, P&G, Marico, Easyss, UNCP, and Citi Bank, helping them acquire future-ready skills. Known for his interactive and hands-on teaching style, he delivers industry-relevant training that ensures practical and impactful learning.",
         // subtitle: "Senior Data Engineer",
@@ -765,24 +765,24 @@ const DATA_ENGINEERING = {
 };
 
 const BUSINESS_ANALYTICS = {
-    title: "Business Analytics Bootcamp",
+    title: "Business Analytics Expert",
     description:
         "Business Analytics is the practice of using data, statistical models, and technology to gain actionable insights and support strategic decision-making. It combines data analysis, visualization, and business intelligence to solve real-world problems, identify trends, and improve performance. Business analysts bridge the gap between data and business goals, driving growth and efficiency across industries.",
     duration: "03 Months",
     schedule: "Thursday, Friday",
     startDate: "16 August, 2025",
     format: "Online & Interactive",
-    days: "Days: Fri, Sat",
+    // days: "Days: Fri, Sat",
     mode: "Mode: Online & Interactive",
     starting: "Starting: 1 September, 2025",
     price: "PKR 60,000",
     category: "BECOME A CERTIFIED",
     instructor: {
-        name: "Amir Jabbar",
+        name: "AAMIR JABBAR",
         title:
             "Data Top Voice | Business Analyst @Engro Group | Keynote Speaker | Solving Business Problems with Data Analytics",
         image: "/images/courses/Amir Bhai-003.png",
-        bio: "Amir is a globally experienced Business Data Analyst, currently serving in the Business Strategy & Development department at Quecko Inc. He empowers organizations with data-driven insights and innovative solutions. With a strong track record in multinational companies, He has driven transformations through analytical techniques such as customer analysis, churn analysis, and product- level analysis.",
+        bio: "Aamir Jabbar is a globally experienced Business Data Analyst, currently serving in the Business Strategy & Development department at Quecko Inc. He empowers organizations with data-driven insights and innovative solutions. With a strong track record in multinational companies, He has driven transformations through analytical techniques such as customer analysis, churn analysis, and product- level analysis.",
         experience:
             "Amir has trained over 100 professionals from top organizations like GSK, HBL, PSO, Nokia, Etisalat, UNDP, and Citi Bank, helping them acquire future-ready skills. Known for his interactive and hands-on teaching style, He delivers industry-relevant training that ensures practical and impactful learning.",
         badges: [
@@ -971,7 +971,7 @@ const BUSINESS_ANALYTICS = {
 };
 
 const MERN_STACK = {
-    title: "MERN Stack Development Bootcamp",
+    title: "MERN Stack Development Expert",
     description:
         "Master full-stack web development with MongoDB, Express.js, React, and Node.js. Build modern, scalable web applications from scratch and become a proficient full-stack developer. Learn industry best practices, deployment strategies, and real-world project development.",
     duration: "03 Months",
@@ -979,16 +979,16 @@ const MERN_STACK = {
     startDate: "1 September, 2025",
     format: "Online & Interactive",
     price: "PKR 60,000",
-    days: "Days: Mon, Wed, Fri",
+    // days: "Days: Mon, Wed, Fri",
     mode: "Mode: Online & Interactive",
     starting: "Starting: 1 September, 2025",
     category: "BECOME A CERTIFIED",
     instructor: {
-        name: "MUHAMMAD UBAID UR REHMAN",
+        name: "AAMIR JABBAR",
         title: "Senior Full Stack Developer | MERN Stack Expert | Tech Lead",
         image: "/images/courses/Amir Bhai-003.png",
-        bio: "Muhammad Ubaid is a seasoned full-stack developer with over 6 years of experience in building scalable web applications. He has worked with leading tech companies and has expertise in modern JavaScript frameworks and backend technologies.",
-        experience: "Ubaid has mentored over 200 developers and has built numerous production-ready applications. His teaching methodology focuses on practical, project-based learning that prepares students for real-world development challenges.",
+        bio: "Aamir Jabbar is a seasoned full-stack developer with over 6 years of experience in building scalable web applications. He has worked with leading tech companies and has expertise in modern JavaScript frameworks and backend technologies.",
+        experience: "Aamir has mentored over 200 developers and has built numerous production-ready applications. His teaching methodology focuses on practical, project-based learning that prepares students for real-world development challenges.",
     },
     modules: [
         {
@@ -1101,7 +1101,7 @@ const MERN_STACK = {
 };
 
 const DIGITAL_MARKETING = {
-    title: "Digital Marketing Bootcamp",
+    title: "Digital Marketing Expert",
     description:
         "Master the art and science of digital marketing. Learn to create effective marketing campaigns, analyze data, and drive business growth through various digital channels. From social media marketing to SEO and paid advertising, become a complete digital marketing professional.",
     duration: "03 Months",
@@ -1236,7 +1236,7 @@ const DIGITAL_MARKETING = {
 };
 
 const CYBER_SECURITY = {
-    title: "Cyber Security Bootcamp",
+    title: "Cyber Security Expert",
     description:
         "Cyber Security is the practice of protecting systems, networks, and data from digital attacks, unauthorized access, and cyber threats. This field focuses on implementing defensive measures, monitoring systems for vulnerabilities, and responding to incidents in real time. As cyber threats grow more complex, skilled professionals are in high demand to safeguard sensitive information and maintain digital trust across industries.",
     duration: "03 Months",
@@ -1244,16 +1244,16 @@ const CYBER_SECURITY = {
     startDate: "16 August, 2025",
     format: "Online & Interactive",
     price: "PKR 60,000",
-    days: "Days: Mon, Wed, Fri",
+    // days: "Days: Mon, Wed, Fri",
     mode: "Mode: Online & Interactive",
     starting: "Starting: 16 August, 2025",
     category: "BECOME A CERTIFIED",
     instructor: {
-        name: "KHURRAM SHAHID",
+        name: "AAMIR JABBAR",
         title: "Cyber Security Expert | Ethical Hacker | Security Consultant | Protecting Digital Assets",
         image: "/images/courses/Amir Bhai-001.png",
-        bio: "Khurram Shahid is a seasoned Cyber Security professional with extensive experience in protecting organizations from digital threats. He specializes in ethical hacking, penetration testing, and security architecture design.",
-        experience: "Khurram has helped secure numerous organizations and has trained over 150 professionals in cyber security best practices. His hands-on approach ensures students learn both defensive and offensive security techniques.",
+        bio: "Aamir Jabbar is a seasoned Cyber Security professional with extensive experience in protecting organizations from digital threats. He specializes in ethical hacking, penetration testing, and security architecture design.",
+        experience: "Aamir has helped secure numerous organizations and has trained over 150 professionals in cyber security best practices. His hands-on approach ensures students learn both defensive and offensive security techniques.",
     },
     modules: [
         {
@@ -1424,7 +1424,7 @@ const MOBILE_DEVELOPMENT = {
 };
 
 const WEB_DESIGN_DEVELOPMENT = {
-    title: "Web Design & Development Bootcamp",
+    title: "Web Design & Development Expert",
     description:
         "Master the complete web development stack from frontend design to backend development. Learn modern web technologies, responsive design principles, and full-stack development practices to build professional websites and web applications.",
     duration: "05 Months",
@@ -1520,7 +1520,7 @@ const WEB_DESIGN_DEVELOPMENT = {
 };
 
 const BUSINESS_DEVELOPMENT = {
-    title: "Business Development Bootcamp",
+    title: "Business Development Expert",
     description:
         "Learn strategic business development skills to drive growth, build partnerships, and create value for organizations. Master the art of identifying opportunities, developing business strategies, and executing growth initiatives in today's competitive market.",
     duration: "01 Month",
@@ -1528,7 +1528,7 @@ const BUSINESS_DEVELOPMENT = {
     startDate: "16 August, 2025",
     format: "Online & Interactive",
     price: "PKR 20,000",
-    days: "Days: Thu, Fri",
+    // days: "Days: Thu, Fri",
     mode: "Mode: Online & Interactive",
     starting: "Starting: 16 August, 2025",
     category: "BECOME A CERTIFIED",
@@ -1605,7 +1605,7 @@ const BUSINESS_DEVELOPMENT = {
 };
 
 const AIRLINE_RESERVATION = {
-    title: "Airline Reservation System Bootcamp",
+    title: "Airline Reservation System Expert",
     description:
         "Master the airline industry's reservation systems and travel technology. Learn to operate Global Distribution Systems (GDS), understand airline operations, and develop skills in travel booking, ticketing, and customer service in the aviation industry.",
     duration: "02 Months",

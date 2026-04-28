@@ -110,10 +110,10 @@ const CourseCardsGrid = () => {
                                         <Clock className="w-4 h-4 mr-2" />
                                         <span className="text-sm">{course.duration}</span>
                                     </div>
-                                    <div className="flex items-center text-muted-foreground">
+                                    {/* <div className="flex items-center text-muted-foreground">
                                         <Calendar className="w-4 h-4 mr-2" />
                                         <span className="text-sm">{course.days}</span>
-                                    </div>
+                                    </div> */}
                                     <div className="flex items-center text-muted-foreground">
                                         <Users className="w-4 h-4 mr-2" />
                                         <span className="text-sm">{course.mode}</span>
