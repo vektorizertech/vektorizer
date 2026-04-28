@@ -25,4 +25,4 @@ export const SOCIAL_LINKS = [
 
 export const EMAIL = "info@vektorizer.com";
 export const PHONE = "+92 332 0777577";
-export const LOCATION = "G-15 Markaz, Islamabad, Pakistan";
+export const LOCATION = "G-15, Islamabad, Pakistan";
