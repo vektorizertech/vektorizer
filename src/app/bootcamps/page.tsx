@@ -154,7 +154,7 @@ const CourseCardsGrid = () => {
                         className="w-full rounded-full cta-button group"
                         onClick={() => handleEnrollClick(course.title)}
                       >
-                        Enroll Now
+                        Reserve Now
                         <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
                       </Button>
                     </div>
@@ -167,7 +167,7 @@ const CourseCardsGrid = () => {
                         className="px-6 rounded-full cta-button group"
                         onClick={() => handleEnrollClick(course.title)}
                       >
-                        Enroll Now
+                        Reserve Now
                         <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
                       </Button>
                     </div>
