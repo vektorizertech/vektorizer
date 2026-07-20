@@ -121,25 +121,57 @@ const CourseCardsGrid = () => {
                       <Users className="w-4 h-4 text-primary" />
                       {course.mode}
                     </li>
-                    <li className="flex items-center gap-2.5 text-sm text-muted-foreground">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                      {course.starting}
-                    </li>
+                    {course.starting && (
+                      <li className="flex items-center gap-2.5 text-sm text-muted-foreground">
+                        <CheckCircle className="w-4 h-4 text-primary" />
+                        {course.starting}
+                      </li>
+                    )}
                   </ul>
 
                   {/* Price and Enroll Button */}
-                  <div className="flex items-center justify-between pt-6 mt-auto">
-                    <div className="text-2xl font-bold tracking-tight">
-                      {course.price}
+                  {course.pricing ? (
+                    <div className="pt-6 mt-auto space-y-4">
+                      <div className="space-y-2.5">
+                        {course.pricing.map((tier) => (
+                          <div key={tier.label}>
+                            <div className="flex items-baseline gap-2">
+                              <span className="text-xl font-bold tracking-tight">
+                                {tier.price}
+                              </span>
+                              <span className="text-sm line-through text-muted-foreground">
+                                {tier.originalPrice}
+                              </span>
+                            </div>
+                            <p className="text-xs text-muted-foreground">
+                              {tier.label}
+                              {tier.note ? ` · ${tier.note}` : ""}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                      <Button
+                        className="w-full rounded-full cta-button group"
+                        onClick={() => handleEnrollClick(course.title)}
+                      >
+                        Enroll Now
+                        <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
+                      </Button>
                     </div>
-                    <Button
-                      className="px-6 rounded-full cta-button group"
-                      onClick={() => handleEnrollClick(course.title)}
-                    >
-                      Enroll Now
-                      <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
-                    </Button>
-                  </div>
+                  ) : (
+                    <div className="flex items-center justify-between pt-6 mt-auto">
+                      <div className="text-2xl font-bold tracking-tight">
+                        {course.price}
+                      </div>
+                      <Button
+                        className="px-6 rounded-full cta-button group"
+                        onClick={() => handleEnrollClick(course.title)}
+                      >
+                        Enroll Now
+                        <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
+                      </Button>
+                    </div>
+                  )}
                 </div>
               </Card>
             ))}

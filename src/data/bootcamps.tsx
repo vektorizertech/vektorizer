@@ -1,5 +1,47 @@
 // Icons are now handled as strings in the ExpertComponent
 
+// A discounted price row. Courses that sell at a single flat rate use `price`
+// instead; courses with more than one audience use `pricing`.
+export interface CoursePriceTier {
+    label: string;
+    note?: string;
+    originalPrice: string;
+    price: string;
+}
+
+export interface Course {
+    title: string;
+    description: string;
+    duration: string;
+    schedule?: string;
+    startDate?: string;
+    format: string;
+    price?: string;
+    pricing?: CoursePriceTier[];
+    days?: string;
+    mode: string;
+    starting?: string;
+    category: string;
+    instructor: {
+        name: string;
+        title: string;
+        image: string;
+        bio?: string;
+        experience?: string;
+        subtitle?: string;
+        badges?: { text: string; icon?: string; color?: string }[];
+    };
+    modules?: {
+        title: string;
+        description?: string;
+        subtopics?: { category?: string; items: string[] }[];
+        tags?: string[];
+    }[];
+    tools?: { name: string; icon?: string }[];
+    heroMessage?: string;
+    certificationTitle?: string;
+}
+
 const DATA_SCIENCE = {
     title: "Data Science Expert",
     description:
@@ -1687,7 +1729,321 @@ const AIRLINE_RESERVATION = {
     certificationTitle: "AIRLINE RESERVATION SPECIALIST",
 };
 
-export const COURSES = [
+const PRO_CANVA_DESIGNER = {
+    title: "Pro Canva Designer",
+    description:
+        "Pro Canva Designer is a hands-on, project-based program that takes you from Canva fundamentals to client-ready design work. Across four weeks you build a complete portfolio — brand identity, print collateral, multi-page documents, pitch decks, email systems and a live published website — while learning the export, print and handoff workflows professional designers rely on every day.",
+    duration: "4 Weeks",
+    format: "Online / On-Premises upon request",
+    mode: "Mode: Online / On-Premises upon request",
+    category: "BECOME A CERTIFIED",
+    pricing: [
+        {
+            label: "Per Student",
+            note: "For a group of 10",
+            originalPrice: "PKR 8,000",
+            price: "PKR 5,000",
+        },
+        {
+            label: "Teaching & Non-Teaching Staff",
+            originalPrice: "PKR 50,000",
+            price: "PKR 30,000",
+        },
+    ],
+    instructor: {
+        name: "SAHHER ABBAS",
+        title:
+            "Co-Founder at Vektorizer | Founder, International Online Educators | STEAM & AI Educator",
+        image: "/api/placeholder/200/250",
+        subtitle: "Co-Founder, Vektorizer",
+        bio: "Co-Founder at Vektorizer. Worked on a national project, Disruptive Education: Creating Foundries of Emerging Tech, under the Ministry of Federal Education & Professional Training (MoFEPT), Federal Directorate of Education (FDE), in collaboration with the Institute of Space and Technology and LearnOBots. Founder of International Online Educators, where students from all over the world get personalized assistance.",
+        experience:
+            "Facilitated engaging sessions focused on 21st-century skills including STEAM, digital creativity and innovation, Artificial Intelligence, Programming, Robotics and Entrepreneurship to 1000+ students. Conducted a STEAM Winter Camp at NUST H-12 for various age groups. Trained 100+ in-service teaching and non-teaching faculty at IMCG (PG) F-7/2 in AI tools for educators and digital pedagogy.",
+        badges: [
+            { text: "STEAM & AI Educator", icon: "Users", color: "green" },
+            { text: "1000+ Students Trained", icon: "Users", color: "blue" },
+        ],
+    },
+    modules: [
+        {
+            title: "Week 1: Brand Identity & Document Design",
+            description:
+                "Establish a visual identity and carry it across print-ready collateral and long-form documents.",
+            subtopics: [
+                {
+                    category: "Logo + Business Card Design",
+                    items: [
+                        "Brand identity fundamentals",
+                        "Export workflows",
+                        "Print files and print-ready setup",
+                        "Peer critique",
+                        "Client-ready handoff",
+                        "Deliverable: print-ready logo and business card set",
+                    ],
+                },
+                {
+                    category: "Document Design",
+                    items: [
+                        "Multi-page reports",
+                        "Grid systems",
+                        "Typographic hierarchy",
+                        "Print and web PDF export",
+                        "Deliverable: multi-page report with a consistent grid",
+                    ],
+                },
+            ],
+            tags: ["Brand Identity", "Print Design", "Grid Systems"],
+        },
+        {
+            title: "Week 2: Posters & Presentations",
+            description:
+                "Build visual impact with layered compositions and slide systems that hold an audience.",
+            subtopics: [
+                {
+                    category: "Poster Design",
+                    items: [
+                        "Layering and masking",
+                        "Visual hierarchy",
+                        "Establishing a focal point",
+                        "Multi-format export",
+                        "Deliverable: print-ready poster in multiple formats",
+                    ],
+                },
+                {
+                    category: "Presentation and Pitch Deck",
+                    items: [
+                        "Slide systems",
+                        "Animation",
+                        "Speaker notes",
+                        "Building a 10-slide deck",
+                        "Canva Present link",
+                        "Deliverable: 10-slide pitch deck with a Present link",
+                    ],
+                },
+            ],
+            tags: ["Poster Design", "Pitch Decks", "Canva Present"],
+        },
+        {
+            title: "Week 3: Email Design & Canva Integrations",
+            description:
+                "Design for the inbox, then automate repetitive production work with Canva's app ecosystem.",
+            subtopics: [
+                {
+                    category: "Email Design",
+                    items: [
+                        "Newsletter systems",
+                        "Email UX",
+                        "CTA hierarchy",
+                        "Email signatures",
+                        "Deliverable: newsletter template and email signature",
+                    ],
+                },
+                {
+                    category: "Canva Apps and Integrations",
+                    items: [
+                        "QR codes",
+                        "Bulk Create",
+                        "Mockups",
+                        "Data visualizer",
+                        "Workflow automation",
+                        "Deliverable: automated mockup or data-driven project",
+                    ],
+                },
+            ],
+            tags: ["Email Design", "Bulk Create", "Automation"],
+        },
+        {
+            title: "Week 4: Canva AI & Final Showcase",
+            description:
+                "Put AI to work in your design process and publish a live portfolio site as your capstone.",
+            subtopics: [
+                {
+                    category: "Canva AI",
+                    items: [
+                        "Prompt engineering",
+                        "Magic Media",
+                        "AI writing",
+                        "Before/after critique",
+                        "Deliverable: AI-assisted content kit",
+                    ],
+                },
+                {
+                    category: "Website Design and Final Showcase",
+                    items: [
+                        "Website live publishing",
+                        "Embeds",
+                        "Custom domain",
+                        "Mobile view",
+                        "Deliverable: live, published personal or portfolio website",
+                    ],
+                },
+            ],
+            tags: ["Canva AI", "Magic Media", "Web Publishing"],
+        },
+    ],
+    tools: [
+        { name: "Canva", icon: "Monitor" },
+        { name: "Canva AI", icon: "Monitor" },
+        { name: "Magic Media", icon: "Monitor" },
+        { name: "Bulk Create", icon: "Monitor" },
+        { name: "Data Visualizer", icon: "Monitor" },
+        { name: "Canva Present", icon: "Monitor" },
+        { name: "Canva Websites", icon: "Monitor" },
+        { name: "Mockups", icon: "Monitor" },
+        { name: "QR Code Generator", icon: "Monitor" },
+    ],
+    heroMessage:
+        "Build a client-ready design portfolio in four weeks — from brand identity to a live published website",
+    certificationTitle: "PRO CANVA DESIGNER",
+};
+
+const AI_FOR_EDUCATORS = {
+    title: "AI for Educators",
+    description:
+        "AI for Educators is a one-week intensive that equips teaching staff to use AI confidently and responsibly in the classroom. Over five days you learn to structure and refine prompts, generate lesson plans and slide decks, build curriculum resources with NotebookLM, design assessments and interactive quizzes, and produce classroom materials in Canva — leaving with a set of ready-to-teach assets built around your own subject.",
+    duration: "1 Week",
+    format: "Online / On-Premises upon request",
+    mode: "Mode: Online / On-Premises upon request",
+    category: "BECOME A CERTIFIED",
+    pricing: [
+        {
+            label: "Per Student",
+            note: "For a group of 10",
+            originalPrice: "PKR 8,000",
+            price: "PKR 5,000",
+        },
+        {
+            label: "Teaching & Non-Teaching Staff",
+            originalPrice: "PKR 50,000",
+            price: "PKR 30,000",
+        },
+    ],
+    instructor: {
+        name: "SAHHER ABBAS",
+        title:
+            "Co-Founder at Vektorizer | Founder, International Online Educators | STEAM & AI Educator",
+        image: "/api/placeholder/200/250",
+        subtitle: "Co-Founder, Vektorizer",
+        bio: "Co-Founder at Vektorizer. Worked on a national project, Disruptive Education: Creating Foundries of Emerging Tech, under the Ministry of Federal Education & Professional Training (MoFEPT), Federal Directorate of Education (FDE), in collaboration with the Institute of Space and Technology and LearnOBots. Founder of International Online Educators, where students from all over the world get personalized assistance.",
+        experience:
+            "Facilitated engaging sessions focused on 21st-century skills including STEAM, digital creativity and innovation, Artificial Intelligence, Programming, Robotics and Entrepreneurship to 1000+ students. Conducted a STEAM Winter Camp at NUST H-12 for various age groups. Trained 100+ in-service teaching and non-teaching faculty at IMCG (PG) F-7/2 in AI tools for educators and digital pedagogy.",
+        badges: [
+            { text: "STEAM & AI Educator", icon: "Users", color: "green" },
+            { text: "1000+ Students Trained", icon: "Users", color: "blue" },
+        ],
+    },
+    modules: [
+        {
+            title: "Day 1: The Art of Prompt Engineering",
+            description:
+                "Learn to direct AI precisely and to judge what comes back before it reaches your students.",
+            subtopics: [
+                {
+                    category: "Core Skills",
+                    items: [
+                        "Prompt structuring",
+                        "Iterative refinement",
+                        "Role-based prompting",
+                        "Prompt chaining for classroom tasks",
+                        "Critically evaluating AI output",
+                    ],
+                },
+                {
+                    category: "Deliverable",
+                    items: ["Personal subject-specific prompting"],
+                },
+            ],
+            tags: ["Prompt Engineering", "AI Literacy"],
+        },
+        {
+            title: "Day 2: Lesson Planning and Content Design",
+            description:
+                "Turn curriculum requirements into teachable material with AI doing the first draft.",
+            subtopics: [
+                {
+                    category: "Core Skills",
+                    items: [
+                        "AI-assisted lesson plan generation",
+                        "Differentiated content",
+                        "AI-driven slide deck design",
+                        "Aligning content to curriculum standards",
+                    ],
+                },
+                {
+                    category: "Deliverable",
+                    items: ["A ready-to-teach lesson plan and AI-generated slide deck"],
+                },
+            ],
+            tags: ["Edugems", "Claude", "Lesson Planning"],
+        },
+        {
+            title: "Day 3: Curriculum Development",
+            description:
+                "Build a working knowledge base from your own source material and generate study resources from it.",
+            subtopics: [
+                {
+                    category: "Core Skills",
+                    items: [
+                        "Organizing source material",
+                        "Mind maps",
+                        "Video overviews",
+                        "Audio overviews",
+                        "Auto-generated reports",
+                        "Flashcards and data tables",
+                    ],
+                },
+            ],
+            tags: ["NotebookLM", "Curriculum Design"],
+        },
+        {
+            title: "Day 4: Assessments, Quizzes and Rubrics",
+            description:
+                "Design assessment that measures what you actually taught, and grade it transparently.",
+            subtopics: [
+                {
+                    category: "Core Skills",
+                    items: [
+                        "AI-generated assessment design",
+                        "Interactive quiz building",
+                        "Transparent rubric creation",
+                        "Aligning assessment to learning objectives",
+                    ],
+                },
+            ],
+            tags: ["NotebookLM", "Gemini", "Kahoot"],
+        },
+        {
+            title: "Day 5: Canva in the Educational Setting",
+            description:
+                "Produce the printed and displayed materials that surround your teaching.",
+            subtopics: [
+                {
+                    category: "Core Skills",
+                    items: [
+                        "Classroom materials and worksheets",
+                        "Posters and certificates",
+                        "Canva for Education features",
+                        "Staff collaboration workflows",
+                    ],
+                },
+            ],
+            tags: ["Canva", "Classroom Materials"],
+        },
+    ],
+    tools: [
+        { name: "Claude", icon: "Monitor" },
+        { name: "Edugems", icon: "Monitor" },
+        { name: "NotebookLM", icon: "Monitor" },
+        { name: "Gemini", icon: "Monitor" },
+        { name: "Kahoot", icon: "Monitor" },
+        { name: "Canva for Education", icon: "Monitor" },
+    ],
+    heroMessage:
+        "Bring AI into your classroom in five days — leave with lesson plans, assessments and materials you can teach tomorrow",
+    certificationTitle: "AI-POWERED EDUCATOR",
+};
+
+export const COURSES: Course[] = [
     DATA_SCIENCE,
     DATA_ANALYTICS,
     DATA_ENGINEERING,
@@ -1695,6 +2051,8 @@ export const COURSES = [
     MERN_STACK,
     // DIGITAL_MARKETING,
     CYBER_SECURITY,
+    PRO_CANVA_DESIGNER,
+    AI_FOR_EDUCATORS,
     // MOBILE_DEVELOPMENT,
     // WEB_DESIGN_DEVELOPMENT,
     // BUSINESS_DEVELOPMENT,

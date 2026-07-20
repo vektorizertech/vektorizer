@@ -29,7 +29,11 @@ export const generateBreadcrumbSchema = (
   })),
 });
 
-export const generateCourseSchema = (course: any) => ({
+export const generateCourseSchema = (course: any) => {
+  // Courses priced per audience expose tiers instead of a single flat `price`
+  const headlinePrice = course.price ?? course.pricing?.[0]?.price;
+
+  return {
   "@context": "https://schema.org",
   "@type": "Course",
   name: course.title,
@@ -49,8 +53,9 @@ export const generateCourseSchema = (course: any) => ({
   timeRequired: course.duration,
   offers: {
     "@type": "Offer",
-    price: course.price?.replace(/[^\d]/g, "") || "0",
+    price: headlinePrice?.replace(/[^\d]/g, "") || "0",
     priceCurrency: "PKR",
     availability: "https://schema.org/InStock",
   },
-});
+  };
+};
