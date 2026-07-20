@@ -1744,11 +1744,7 @@ const PRO_CANVA_DESIGNER = {
             originalPrice: "PKR 8,000",
             price: "PKR 5,000",
         },
-        {
-            label: "Teaching & Non-Teaching Staff",
-            originalPrice: "PKR 50,000",
-            price: "PKR 30,000",
-        },
+        
     ],
     instructor: {
         name: "SAHHER ABBAS",
@@ -1882,15 +1878,11 @@ const PRO_CANVA_DESIGNER = {
         },
     ],
     tools: [
-        { name: "Canva", icon: "Monitor" },
         { name: "Canva AI", icon: "Monitor" },
-        { name: "Magic Media", icon: "Monitor" },
-        { name: "Bulk Create", icon: "Monitor" },
-        { name: "Data Visualizer", icon: "Monitor" },
-        { name: "Canva Present", icon: "Monitor" },
-        { name: "Canva Websites", icon: "Monitor" },
-        { name: "Mockups", icon: "Monitor" },
-        { name: "QR Code Generator", icon: "Monitor" },
+        { name: "App Integrations", icon: "Monitor" },
+        { name: "Branding", icon: "Monitor" },
+        { name: "Reporting", icon: "Monitor" },
+        { name: "Multiple Formats", icon: "Monitor" },
     ],
     heroMessage:
         "Build a client-ready design portfolio in four weeks — from brand identity to a live published website",
@@ -1904,14 +1896,9 @@ const AI_FOR_EDUCATORS = {
     duration: "1 Week",
     format: "Online / On-Premises upon request",
     mode: "Mode: Online / On-Premises upon request",
-    category: "BECOME A CERTIFIED",
+    category: "TRAIN YOUR FACULTY ON",
     pricing: [
-        {
-            label: "Per Student",
-            note: "For a group of 10",
-            originalPrice: "PKR 8,000",
-            price: "PKR 5,000",
-        },
+        
         {
             label: "Teaching & Non-Teaching Staff",
             originalPrice: "PKR 50,000",
@@ -2031,12 +2018,11 @@ const AI_FOR_EDUCATORS = {
         },
     ],
     tools: [
-        { name: "Claude", icon: "Monitor" },
-        { name: "Edugems", icon: "Monitor" },
-        { name: "NotebookLM", icon: "Monitor" },
         { name: "Gemini", icon: "Monitor" },
+        { name: "Claude", icon: "Monitor" },
+        { name: "NotebookLM", icon: "Monitor" },
         { name: "Kahoot", icon: "Monitor" },
-        { name: "Canva for Education", icon: "Monitor" },
+        { name: "Canva AI", icon: "Monitor" },
     ],
     heroMessage:
         "Bring AI into your classroom in five days — leave with lesson plans, assessments and materials you can teach tomorrow",
