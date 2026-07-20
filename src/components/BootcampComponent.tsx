@@ -81,8 +81,8 @@ interface BootcampComponentProps {
     title: string;
     description: string;
     duration: string;
-    schedule: string;
-    startDate: string;
+    schedule?: string;
+    startDate?: string;
     format: string;
     instructor: Instructor;
     modules?: Module[];
@@ -145,12 +145,13 @@ const BootcampComponent: React.FC<BootcampComponentProps> = ({
         .map((n) => n[0])
         .join("");
 
+    // Courses that run on request have no fixed schedule or cohort date
     const heroFacts = [
         { icon: Clock, label: "Duration", value: duration },
         { icon: Calendar, label: "Schedule", value: schedule },
         { icon: CalendarCheck, label: "Starts", value: startDate },
         { icon: MapPin, label: "Format", value: format },
-    ];
+    ].filter((fact) => !!fact.value);
 
     // Modules without any expandable detail render as static rows
     const moduleHasDetails = (m: Module) =>
@@ -654,8 +655,8 @@ const BootcampComponent: React.FC<BootcampComponentProps> = ({
                             Ready to Become a {title}?
                         </h2>
                         <p className="max-w-2xl mx-auto mb-10 text-lg text-white/85">
-                            Cohort starts {startDate} · {format}. Seats are limited —
-                            secure yours today.
+                            {startDate ? `Cohort starts ${startDate} · ` : ""}
+                            {format}. Seats are limited — secure yours today.
                         </p>
                         <Button
                             asChild
