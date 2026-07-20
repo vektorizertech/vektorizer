@@ -27,13 +27,12 @@ const FloatingScrollButton = () => {
       onClick={scrollToTop}
       aria-label="Scroll to top"
       className={cn(
-        "fixed bottom-6 right-6 z-50 p-4 rounded-full",
-        "bg-gradient-to-br from-emerald-600/80 to-teal-600/80 text-white",
-        "backdrop-blur-xl border border-white/20 shadow-xl",
-        "hover:shadow-2xl hover:scale-105 transition-all duration-300 group"
+        "fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full",
+        "cta-button text-white",
+        "group"
       )}
     >
-      <ArrowUp className="h-6 w-6 transition-transform duration-300" />
+      <ArrowUp className="w-5 h-5 transition-transform duration-300 group-hover:-translate-y-0.5" />
     </button>
   );
 };

@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { FileText } from "lucide-react";
+import { Cookie, FileText, ShieldCheck } from "lucide-react";
 import { ROUTES } from "@/data/routes";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -49,19 +49,21 @@ export const metadata: Metadata = {
 const PrivacyPolicy = () => {
 
     return (
-        <div className="min-h-screen pt-20 bg-gradient-to-br from-background via-secondary/30 to-background">
+        <div className="min-h-screen">
             {/* Header */}
-            <section className="py-16">
-                <div className="container px-4">
+            <section className="relative pt-36 pb-12 hero-gradient md:pt-44 md:pb-16">
+                <div className="bg-grid-fade" />
+                <div className="container relative px-4">
                     <div className="max-w-4xl mx-auto">
-                        <div className="mb-12 text-center" data-aos="fade-up">
-                            <div className="inline-flex items-center px-6 py-3 mb-6 text-sm font-semibold rounded-full bg-primary/10 text-primary dark:text-white">
-                                🔒 Your Privacy Matters
+                        <div className="text-center" data-aos="fade-up">
+                            <div className="eyebrow mb-8">
+                                <ShieldCheck className="w-3.5 h-3.5" />
+                                Your Privacy Matters
                             </div>
-                            <h1 className="mb-6 text-4xl font-bold md:text-6xl">
+                            <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-6xl">
                                 Privacy <span className="text-gradient">Policy</span>
                             </h1>
-                            <p className="max-w-3xl mx-auto text-xl text-muted-foreground">
+                            <p className="max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">
                                 We&apos;re committed to protecting your privacy and being transparent about how we handle your data.
                             </p>
                             <div className="mt-6 text-sm text-muted-foreground">
@@ -76,10 +78,10 @@ const PrivacyPolicy = () => {
             <section className="py-12">
                 <div className="container px-4">
                     <div className="max-w-4xl mx-auto">
-                        <Card className="p-8 mb-12 card-gradient" data-aos="fade-up" data-aos-delay="200">
+                        <Card className="p-8 mb-12 rounded-3xl card-gradient" data-aos="fade-up" data-aos-delay="200">
                             <div className="flex items-start space-x-4">
-                                <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-primary to-primary/80">
-                                    <FileText className="w-6 h-6 text-white" />
+                                <div className="icon-chip">
+                                    <FileText className="w-6 h-6" />
                                 </div>
                                 <div>
                                     <h2 className="mb-4 text-2xl font-bold">Welcome to Vektorizer&apos;s Privacy Policy</h2>
@@ -104,13 +106,13 @@ const PrivacyPolicy = () => {
                             {PRIVACY_POLICY.map((section, index) => (
                                 <Card
                                     key={index}
-                                    className="p-8 card-gradient"
+                                    className="p-8 rounded-3xl card-gradient"
                                     data-aos="fade-up"
                                     data-aos-delay={`${index * 100}`}
                                 >
                                     <div className="flex items-start space-x-6">
-                                        <div className="flex items-center justify-center flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-r from-primary to-primary/80">
-                                            <section.icon className="text-white h-7 w-7" />
+                                        <div className="icon-chip w-14 h-14">
+                                            <section.icon className="h-7 w-7" />
                                         </div>
                                         <div className="flex-1">
                                             <h3 className="mb-6 text-2xl font-bold">{section.title}</h3>
@@ -135,9 +137,11 @@ const PrivacyPolicy = () => {
             <section className="py-16 bg-secondary/50" id="cookies">
                 <div className="container px-4">
                     <div className="max-w-4xl mx-auto">
-                        <Card className="p-8 card-gradient" data-aos="fade-up">
-                            <h3 className="flex items-center mb-6 text-2xl font-bold">
-                                <span className="mr-3">🍪</span>
+                        <Card className="p-8 rounded-3xl card-gradient" data-aos="fade-up">
+                            <h3 className="flex items-center gap-3 mb-6 text-2xl font-bold">
+                                <span className="icon-chip w-10 h-10 rounded-xl">
+                                    <Cookie className="w-5 h-5" />
+                                </span>
                                 Cookie Policy
                             </h3>
                             <div className="space-y-6 text-muted-foreground">
@@ -163,7 +167,7 @@ const PrivacyPolicy = () => {
             <section className="py-16">
                 <div className="container px-4">
                     <div className="max-w-4xl mx-auto">
-                        <Card className="p-8 card-gradient" data-aos="fade-up">
+                        <Card className="p-8 rounded-3xl card-gradient" data-aos="fade-up">
                             <h3 className="mb-6 text-2xl font-bold">Your Rights & Choices</h3>
                             <div className="grid gap-8 md:grid-cols-2">
                                 {[YOUR_RIGHTS.slice(0, 3), YOUR_RIGHTS.slice(3)].map((column, columnIndex) => (

@@ -3,16 +3,26 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
     Calendar,
+    CalendarCheck,
+    Check,
+    ChevronDown,
     Clock,
-    Users,
-    MapPin,
-    Plus,
-    Minus,
     Code,
+    GraduationCap,
+    MapPin,
     Monitor,
+    Sparkles,
+    UserRound,
+    Users,
+    Wrench,
+    ArrowRight,
+    BookOpen,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { ROUTES } from "@/data/routes";
+import { cn } from "@/lib/utils";
 
 // Helper function to get icon component from string
 const getIconComponent = (iconName?: string) => {
@@ -103,7 +113,7 @@ const BootcampComponent: React.FC<BootcampComponentProps> = ({
     };
 
     const fadeInUp = {
-        initial: { opacity: 0, y: 60 },
+        initial: { opacity: 0, y: 40 },
         animate: { opacity: 1, y: 0 },
         transition: { duration: 0.6, ease: "easeOut" },
     };
@@ -117,507 +127,549 @@ const BootcampComponent: React.FC<BootcampComponentProps> = ({
     };
 
     const scaleIn = {
-        initial: { opacity: 0, scale: 0.8 },
+        initial: { opacity: 0, scale: 0.9 },
         animate: { opacity: 1, scale: 1 },
         transition: { duration: 0.5, ease: "easeOut" },
     };
 
+    // Title with the last word highlighted in the brand gradient
+    const titleWords = title.trim().split(" ");
+    const titleLead = titleWords.slice(0, -1).join(" ");
+    const titleAccent = titleWords[titleWords.length - 1];
+
+    // Some course entries ship a placeholder image path that doesn't resolve
+    const hasInstructorImage =
+        !!instructor.image && !instructor.image.startsWith("/api/placeholder");
+    const instructorInitials = instructor.name
+        .split(" ")
+        .map((n) => n[0])
+        .join("");
+
+    const heroFacts = [
+        { icon: Clock, label: "Duration", value: duration },
+        { icon: Calendar, label: "Schedule", value: schedule },
+        { icon: CalendarCheck, label: "Starts", value: startDate },
+        { icon: MapPin, label: "Format", value: format },
+    ];
+
+    // Modules without any expandable detail render as static rows
+    const moduleHasDetails = (m: Module) =>
+        !!m.description || (m.subtopics?.length ?? 0) > 0 || (m.tags?.length ?? 0) > 0;
+
     return (
-        <div className="min-h-screen bg-background pt-20">
+        <div className="min-h-screen bg-background">
             {/* Hero Section */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8 }}
-                className="bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground relative overflow-hidden"
-            >
-                <div className="absolute inset-0 opacity-10">
-                    <motion.div
-                        animate={{
-                            rotate: [45, 50, 45],
-                            x: [0, 10, 0],
-                        }}
-                        transition={{
-                            duration: 6,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                        }}
-                    >
-                        <Code className="absolute top-20 left-10 w-32 h-32" />
-                    </motion.div>
-                    <motion.div
-                        animate={{
-                            rotate: [-12, -8, -12],
-                            x: [0, -10, 0],
-                        }}
-                        transition={{
-                            duration: 8,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                        }}
-                    >
-                        <Monitor className="absolute bottom-20 right-10 w-24 h-24" />
-                    </motion.div>
-                </div>
-                <div className="container mx-auto px-6 py-16 relative z-10">
-                    <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <section className="relative pt-32 pb-16 hero-gradient md:pt-44 md:pb-24">
+                <div className="bg-grid-fade" />
+                <div className="glow-orb -top-16 right-[15%] h-64 w-64" />
+
+                <div className="container relative px-4 mx-auto">
+                    <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
                         <motion.div
-                            className="space-y-8"
+                            className="space-y-7"
                             initial="initial"
                             animate="animate"
                             variants={staggerContainer}
                         >
+                            <motion.div variants={fadeInUp}>
+                                <div className="eyebrow">
+                                    <GraduationCap className="w-3.5 h-3.5" />
+                                    Professional Bootcamp
+                                </div>
+                            </motion.div>
+
                             <motion.h1
-                                className="text-4xl lg:text-5xl font-bold leading-tight"
+                                className="text-4xl font-bold leading-[1.1] tracking-tight md:text-5xl lg:text-6xl"
                                 variants={fadeInUp}
                             >
-                                {title}
+                                {titleLead}{" "}
+                                <span className="text-gradient">{titleAccent}</span>
                             </motion.h1>
+
                             <motion.p
-                                className="text-primary-foreground/80 text-lg leading-relaxed"
+                                className="text-lg leading-relaxed text-muted-foreground"
                                 variants={fadeInUp}
                             >
                                 {description}
                             </motion.p>
+
                             {heroMessage && (
                                 <motion.div
-                                    className="bg-background/10 backdrop-blur-sm rounded-2xl p-6 border border-border/20"
+                                    className="flex items-start gap-3 p-4 border rounded-2xl border-primary/20 bg-primary/5"
                                     variants={fadeInUp}
                                 >
-                                    <h3 className="text-xl font-semibold mb-6 text-center">
+                                    <Sparkles className="w-5 h-5 mt-0.5 shrink-0 text-primary" />
+                                    <p className="text-sm font-medium leading-relaxed md:text-base">
                                         {heroMessage}
-                                    </h3>
-                                    <motion.div
-                                        className="grid grid-cols-2 gap-4"
-                                        variants={staggerContainer}
-                                    >
-                                        <motion.div
-                                            className="flex items-center space-x-3 bg-background/10 rounded-lg p-3 border border-border/20"
-                                            variants={scaleIn}
-                                            whileHover={{ scale: 1.05 }}
-                                        >
-                                            <Calendar className="w-5 h-5 text-primary-foreground/70" />
-                                            <span className="text-sm font-medium">{duration}</span>
-                                        </motion.div>
-                                        <motion.div
-                                            className="flex items-center space-x-3 bg-background/10 rounded-lg p-3 border border-border/20"
-                                            variants={scaleIn}
-                                            whileHover={{ scale: 1.05 }}
-                                        >
-                                            <Clock className="w-5 h-5 text-primary-foreground/70" />
-                                            <span className="text-sm font-medium">{schedule}</span>
-                                        </motion.div>
-                                        <motion.div
-                                            className="flex items-center space-x-3 bg-background/10 rounded-lg p-3 border border-border/20"
-                                            variants={scaleIn}
-                                            whileHover={{ scale: 1.05 }}
-                                        >
-                                            <Calendar className="w-5 h-5 text-primary-foreground/70" />
-                                            <span className="text-sm font-medium">{startDate}</span>
-                                        </motion.div>
-                                        <motion.div
-                                            className="flex items-center space-x-3 bg-background/10 rounded-lg p-3 border border-border/20"
-                                            variants={scaleIn}
-                                            whileHover={{ scale: 1.05 }}
-                                        >
-                                            <MapPin className="w-5 h-5 text-primary-foreground/70" />
-                                            <span className="text-sm font-medium">{format}</span>
-                                        </motion.div>
-                                    </motion.div>
+                                    </p>
                                 </motion.div>
                             )}
+
+                            <motion.div
+                                className="grid grid-cols-2 gap-3"
+                                variants={staggerContainer}
+                            >
+                                {heroFacts.map((fact) => (
+                                    <motion.div
+                                        key={fact.label}
+                                        className="flex items-center gap-3 p-4 border rounded-2xl border-border/70 bg-card/70 backdrop-blur-sm"
+                                        variants={scaleIn}
+                                    >
+                                        <span className="icon-chip w-10 h-10 rounded-xl">
+                                            <fact.icon className="w-4 h-4" />
+                                        </span>
+                                        <span className="min-w-0">
+                                            <span className="block text-[11px] font-semibold tracking-widest uppercase text-muted-foreground">
+                                                {fact.label}
+                                            </span>
+                                            <span className="block text-sm font-semibold truncate">
+                                                {fact.value}
+                                            </span>
+                                        </span>
+                                    </motion.div>
+                                ))}
+                            </motion.div>
+
+                            <motion.div
+                                className="flex flex-col gap-4 pt-2 sm:flex-row"
+                                variants={fadeInUp}
+                            >
+                                <Button
+                                    asChild
+                                    size="lg"
+                                    className="px-8 py-6 text-base rounded-full cta-button group"
+                                >
+                                    <Link href={ROUTES.CONTACT}>
+                                        Reserve Your Seat
+                                        <ArrowRight className="w-5 h-5 ml-1 transition-transform group-hover:translate-x-1" />
+                                    </Link>
+                                </Button>
+                                {modules.length > 0 && (
+                                    <Button
+                                        asChild
+                                        variant="outline"
+                                        size="lg"
+                                        className="px-8 py-6 text-base rounded-full border-border/80 hover:border-primary/40 hover:bg-primary/5"
+                                    >
+                                        <a href="#curriculum">View Curriculum</a>
+                                    </Button>
+                                )}
+                            </motion.div>
                         </motion.div>
+
+                        {/* Certification / Instructor card */}
                         <motion.div
                             className="flex justify-center"
-                            initial={{ opacity: 0, x: 50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
+                            initial={{ opacity: 0, y: 40 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7, delay: 0.2 }}
                         >
-                            <motion.div
-                                className="bg-card rounded-3xl p-8 max-w-sm w-full shadow-2xl border border-border"
-                                whileHover={{ scale: 1.02 }}
-                                transition={{ duration: 0.3 }}
-                            >
-                                {certificationTitle && (
-                                    <div className="text-center mb-6">
-                                        <p className="text-muted-foreground text-sm font-medium mb-2">
-                                            BECOME A CERTIFIED
-                                        </p>
-                                        <h3 className="text-2xl font-bold text-foreground">
-                                            {certificationTitle}
-                                        </h3>
-                                    </div>
-                                )}
-                                {instructor.name && (
-                                    <div className="relative mb-6">
-                                        <motion.div
-                                            className="w-full h-64 relative rounded-2xl overflow-hidden"
-                                            whileHover={{ scale: 1.05 }}
-                                            transition={{ duration: 0.3 }}
-                                        >
-                                            <Image
-                                                src={instructor.image || "/api/placeholder/200/250"}
-                                                alt={instructor.name}
-                                                fill
-                                                className="object-cover"
-                                            />
-                                        </motion.div>
-                                        <div className="absolute bottom-4 left-4 bg-primary text-primary-foreground px-4 py-2 rounded-lg">
-                                            <div className="font-bold text-lg">
-                                                {instructor.name.split(" ")[0]}
-                                            </div>
-                                            <div className="font-bold text-lg">
-                                                {instructor.name.split(" ")[1] || ""}
-                                            </div>
-                                            <div className="text-xs opacity-80">
-                                                {instructor.subtitle || "Industry Expert"}
-                                            </div>
+                            <div className="relative w-full max-w-sm">
+                                <div className="glow-orb -bottom-8 -left-8 h-48 w-48" />
+                                <div className="relative p-8 rounded-3xl card-gradient">
+                                    {certificationTitle && (
+                                        <div className="mb-6 text-center">
+                                            <p className="mb-1 text-xs font-semibold tracking-widest uppercase text-muted-foreground">
+                                                Become a certified
+                                            </p>
+                                            <h3 className="text-2xl font-bold tracking-tight text-gradient">
+                                                {certificationTitle}
+                                            </h3>
                                         </div>
-                                        {instructor.badges && instructor.badges.length > 0 && (
-                                            <div className="absolute bottom-4 right-4 flex flex-col space-y-1">
-                                                {instructor.badges.map((badge, index) => (
-                                                    <motion.div
-                                                        key={index}
-                                                        className="bg-secondary text-secondary-foreground px-2 py-1 rounded text-xs flex items-center"
-                                                        initial={{ opacity: 0, scale: 0 }}
-                                                        animate={{ opacity: 1, scale: 1 }}
-                                                        transition={{ delay: index * 0.1 }}
-                                                    >
-                                                        {badge.icon && (() => {
-                                                            const IconComponent = getIconComponent(badge.icon);
-                                                            return <IconComponent className="w-3 h-3 mr-1" />;
-                                                        })()}
-                                                        {badge.text}
-                                                    </motion.div>
-                                                ))}
+                                    )}
+
+                                    {instructor.name && (
+                                        <div className="mb-6">
+                                            <div className="relative w-full h-64 mb-5 overflow-hidden rounded-2xl bg-secondary/60">
+                                                {hasInstructorImage ? (
+                                                    <Image
+                                                        src={instructor.image}
+                                                        alt={instructor.name}
+                                                        fill
+                                                        sizes="(max-width: 640px) 100vw, 384px"
+                                                        className="object-cover object-top"
+                                                    />
+                                                ) : (
+                                                    <div className="flex items-center justify-center w-full h-full text-6xl font-bold text-primary bg-primary/10">
+                                                        {instructorInitials}
+                                                    </div>
+                                                )}
                                             </div>
-                                        )}
-                                    </div>
-                                )}
-                                <motion.div
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                >
-                                    <Button className="w-full py-3 font-semibold flex items-center justify-center space-x-2">
-                                        <Users className="w-5 h-5" />
-                                        <span>RESERVE YOUR SEAT</span>
+
+                                            <div className="text-center">
+                                                <p className="text-lg font-bold tracking-tight">
+                                                    {instructor.name}
+                                                </p>
+                                                <p className="text-sm text-muted-foreground">
+                                                    {instructor.subtitle || "Industry Expert"}
+                                                </p>
+                                            </div>
+
+                                            {instructor.badges && instructor.badges.length > 0 && (
+                                                <div className="flex flex-wrap justify-center gap-2 mt-4">
+                                                    {instructor.badges.map((badge, index) => {
+                                                        const BadgeIcon = getIconComponent(badge.icon);
+                                                        return (
+                                                            <span
+                                                                key={index}
+                                                                className="inline-flex items-center gap-1.5 rounded-full border border-primary/25 bg-primary/10 px-3 py-1 text-xs font-medium text-primary dark:text-foreground"
+                                                            >
+                                                                {badge.icon && (
+                                                                    <BadgeIcon className="w-3 h-3" />
+                                                                )}
+                                                                {badge.text}
+                                                            </span>
+                                                        );
+                                                    })}
+                                                </div>
+                                            )}
+                                        </div>
+                                    )}
+
+                                    <Button
+                                        asChild
+                                        className="w-full py-3 font-semibold rounded-full cta-button"
+                                    >
+                                        <Link
+                                            href={ROUTES.CONTACT}
+                                            className="flex items-center justify-center gap-2"
+                                        >
+                                            <Users className="w-5 h-5" />
+                                            <span>Reserve Your Seat</span>
+                                        </Link>
                                     </Button>
-                                </motion.div>
-                            </motion.div>
+                                </div>
+                            </div>
                         </motion.div>
                     </div>
                 </div>
-            </motion.div>
+            </section>
 
             {/* What You'll Learn Section */}
             {modules.length > 0 && (
-                <motion.div
-                    className="container mx-auto px-6 py-16"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                >
-                    <motion.div
-                        className="text-center mb-12"
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        viewport={{ once: true }}
-                    >
-                        <h2 className="text-3xl font-bold text-foreground mb-4">
-                            What You&apos;ll Learn
-                        </h2>
-                        <p className="text-muted-foreground max-w-2xl mx-auto">
-                            Master key skills with hands-on projects and real-world scenarios
-                        </p>
-                    </motion.div>
-                    <div className="max-w-4xl mx-auto space-y-4">
-                        {modules.map((module, index) => (
-                            <motion.div
-                                key={index}
-                                className="border border-border rounded-lg overflow-hidden hover:shadow-md transition-shadow"
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                                viewport={{ once: true }}
-                            >
-                                <motion.button
-                                    onClick={() => toggleModule(index)}
-                                    className="w-full flex items-center justify-between p-6 text-left hover:bg-muted/50 transition-colors"
-                                    whileHover={{ backgroundColor: "hsl(var(--muted) / 0.5)" }}
-                                >
-                                    <div className="flex items-center space-x-4">
-                                        <motion.div
-                                            className="bg-muted text-foreground rounded-full w-8 h-8 flex items-center justify-center font-semibold text-sm"
-                                            whileHover={{ scale: 1.1 }}
-                                        >
-                                            {index + 1}
-                                        </motion.div>
-                                        <span className="font-medium text-foreground">
-                                            {module.title}
-                                        </span>
-                                    </div>
-                                    <motion.div
-                                        animate={{ rotate: expandedModule === index ? 180 : 0 }}
-                                        transition={{ duration: 0.3 }}
-                                    >
-                                        {expandedModule === index ? (
-                                            <Minus className="w-5 h-5 text-muted-foreground" />
-                                        ) : (
-                                            <Plus className="w-5 h-5 text-muted-foreground" />
-                                        )}
-                                    </motion.div>
-                                </motion.button>
-                                <AnimatePresence>
-                                    {expandedModule === index && (
-                                        <motion.div
-                                            className="px-6 pb-6 bg-muted/30 border-t border-border"
-                                            initial={{ height: 0, opacity: 0 }}
-                                            animate={{ height: "auto", opacity: 1 }}
-                                            exit={{ height: 0, opacity: 0 }}
-                                            transition={{ duration: 0.3 }}
-                                        >
-                                            <div className="ml-12">
-                                                {module.description && (
-                                                    <p className="text-muted-foreground mb-4">
-                                                        {module.description}
-                                                    </p>
-                                                )}
-                                                {module.subtopics && (
-                                                    <div className="space-y-3">
-                                                        {module.subtopics.map((subtopic, subtopicIndex) => (
-                                                            <motion.div
-                                                                key={subtopicIndex}
-                                                                className="ml-4"
-                                                                initial={{ opacity: 0, x: -20 }}
-                                                                animate={{ opacity: 1, x: 0 }}
-                                                                transition={{ delay: subtopicIndex * 0.1 }}
-                                                            >
-                                                                {subtopic.category && (
-                                                                    <h5 className="font-semibold text-foreground mb-2">
-                                                                        {subtopic.category}
-                                                                    </h5>
-                                                                )}
-                                                                <ul className="space-y-1 ml-4">
-                                                                    {subtopic.items.map((item, itemIndex) => (
-                                                                        <motion.li
-                                                                            key={itemIndex}
-                                                                            className="text-sm text-muted-foreground flex items-start"
-                                                                            initial={{ opacity: 0, x: -10 }}
-                                                                            animate={{ opacity: 1, x: 0 }}
-                                                                            transition={{
-                                                                                delay:
-                                                                                    subtopicIndex * 0.1 +
-                                                                                    itemIndex * 0.05,
-                                                                            }}
-                                                                        >
-                                                                            <span className="w-1.5 h-1.5 bg-muted-foreground rounded-full mt-2 mr-2 flex-shrink-0"></span>
-                                                                            {item}
-                                                                        </motion.li>
-                                                                    ))}
-                                                                </ul>
-                                                            </motion.div>
-                                                        ))}
-                                                    </div>
-                                                )}
-                                                {module.tags && (
-                                                    <motion.div
-                                                        className="flex flex-wrap gap-2 mt-4"
-                                                        initial={{ opacity: 0, y: 10 }}
-                                                        animate={{ opacity: 1, y: 0 }}
-                                                        transition={{ delay: 0.3 }}
-                                                    >
-                                                        {module.tags.map((tag, tagIndex) => (
-                                                            <motion.span
-                                                                key={tagIndex}
-                                                                className="bg-secondary text-secondary-foreground px-2 py-1 rounded-full text-xs font-medium"
-                                                                initial={{ opacity: 0, scale: 0.8 }}
-                                                                animate={{ opacity: 1, scale: 1 }}
-                                                                transition={{ delay: tagIndex * 0.05 }}
-                                                                whileHover={{ scale: 1.05 }}
-                                                            >
-                                                                {tag}
-                                                            </motion.span>
-                                                        ))}
-                                                    </motion.div>
-                                                )}
-                                            </div>
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
-                            </motion.div>
-                        ))}
-                    </div>
-                </motion.div>
-            )}
-
-            {/* Tools Section */}
-            {tools.length > 0 && (
-                <motion.div
-                    className="bg-gradient-to-br from-primary to-primary/80 text-primary-foreground py-16"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                >
-                    <div className="container mx-auto px-6">
+                <section id="curriculum" className="py-20 md:py-28 scroll-mt-24">
+                    <div className="container px-4 mx-auto">
                         <motion.div
-                            className="text-center mb-12"
+                            className="max-w-2xl mx-auto mb-14 text-center"
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
                             viewport={{ once: true }}
                         >
-                            <h2 className="text-3xl font-bold mb-4">
+                            <div className="eyebrow mb-6">
+                                <BookOpen className="w-3.5 h-3.5" />
+                                Curriculum
+                            </div>
+                            <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
+                                What You&apos;ll Learn
+                            </h2>
+                            <p className="text-lg text-muted-foreground">
+                                Master key skills with hands-on projects and real-world
+                                scenarios
+                            </p>
+                        </motion.div>
+
+                        <div className="max-w-4xl mx-auto space-y-3">
+                            {modules.map((module, index) => {
+                                const expandable = moduleHasDetails(module);
+                                const isOpen = expandedModule === index;
+
+                                return (
+                                    <motion.div
+                                        key={index}
+                                        className={cn(
+                                            "overflow-hidden rounded-2xl border border-border/70 bg-card transition-all",
+                                            isOpen
+                                                ? "border-primary/30 shadow-lg shadow-primary/5"
+                                                : "hover:border-primary/30"
+                                        )}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.45, delay: (index % 6) * 0.06 }}
+                                        viewport={{ once: true }}
+                                    >
+                                        <button
+                                            onClick={() => expandable && toggleModule(index)}
+                                            className={cn(
+                                                "flex w-full items-center justify-between gap-4 p-5 text-left transition-colors md:p-6",
+                                                expandable
+                                                    ? "hover:bg-secondary/40"
+                                                    : "cursor-default"
+                                            )}
+                                            aria-expanded={expandable ? isOpen : undefined}
+                                        >
+                                            <div className="flex items-center gap-4">
+                                                <span className="flex items-center justify-center w-9 h-9 text-sm font-bold rounded-full shrink-0 bg-primary/10 text-primary">
+                                                    {index + 1}
+                                                </span>
+                                                <span className="font-semibold">
+                                                    {module.title}
+                                                </span>
+                                            </div>
+                                            {expandable && (
+                                                <ChevronDown
+                                                    className={cn(
+                                                        "w-5 h-5 shrink-0 text-muted-foreground transition-transform duration-300",
+                                                        isOpen && "rotate-180 text-primary"
+                                                    )}
+                                                />
+                                            )}
+                                        </button>
+
+                                        <AnimatePresence>
+                                            {isOpen && expandable && (
+                                                <motion.div
+                                                    className="border-t border-border/60"
+                                                    initial={{ height: 0, opacity: 0 }}
+                                                    animate={{ height: "auto", opacity: 1 }}
+                                                    exit={{ height: 0, opacity: 0 }}
+                                                    transition={{ duration: 0.3 }}
+                                                >
+                                                    <div className="p-5 md:p-6 md:pl-[4.75rem] bg-secondary/30">
+                                                        {module.description && (
+                                                            <p className="mb-4 text-muted-foreground">
+                                                                {module.description}
+                                                            </p>
+                                                        )}
+                                                        {module.subtopics && (
+                                                            <div className="space-y-5">
+                                                                {module.subtopics.map(
+                                                                    (subtopic, subtopicIndex) => (
+                                                                        <div key={subtopicIndex}>
+                                                                            {subtopic.category && (
+                                                                                <h5 className="mb-3 font-semibold">
+                                                                                    {subtopic.category}
+                                                                                </h5>
+                                                                            )}
+                                                                            <ul className="space-y-2.5">
+                                                                                {subtopic.items.map(
+                                                                                    (item, itemIndex) => (
+                                                                                        <li
+                                                                                            key={itemIndex}
+                                                                                            className="flex items-start gap-2.5 text-sm text-muted-foreground"
+                                                                                        >
+                                                                                            <span className="flex items-center justify-center w-5 h-5 mt-0.5 rounded-full shrink-0 bg-primary/10 text-primary">
+                                                                                                <Check className="w-3 h-3" />
+                                                                                            </span>
+                                                                                            {item}
+                                                                                        </li>
+                                                                                    )
+                                                                                )}
+                                                                            </ul>
+                                                                        </div>
+                                                                    )
+                                                                )}
+                                                            </div>
+                                                        )}
+                                                        {module.tags && (
+                                                            <div className="flex flex-wrap gap-2 mt-5">
+                                                                {module.tags.map((tag, tagIndex) => (
+                                                                    <span
+                                                                        key={tagIndex}
+                                                                        className="rounded-full border border-primary/25 bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary dark:text-foreground"
+                                                                    >
+                                                                        {tag}
+                                                                    </span>
+                                                                ))}
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </motion.div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {/* Tools Section */}
+            {tools.length > 0 && (
+                <section className="py-20 md:py-28 bg-secondary/40">
+                    <div className="container px-4 mx-auto">
+                        <motion.div
+                            className="max-w-2xl mx-auto mb-14 text-center"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            viewport={{ once: true }}
+                        >
+                            <div className="eyebrow mb-6">
+                                <Wrench className="w-3.5 h-3.5" />
+                                Toolkit
+                            </div>
+                            <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
                                 Technologies & Tools You&apos;ll Master
                             </h2>
-                            <p className="text-primary-foreground/80">
+                            <p className="text-lg text-muted-foreground">
                                 Industry-standard tools used by top professionals
                             </p>
                         </motion.div>
+
                         <motion.div
-                            className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-6xl mx-auto"
+                            className="grid max-w-5xl grid-cols-2 gap-4 mx-auto sm:grid-cols-3 lg:grid-cols-5"
                             variants={staggerContainer}
                             initial="initial"
                             whileInView="animate"
                             viewport={{ once: true }}
                         >
-                            {tools.map((tool, index) => (
-                                <motion.div
-                                    key={index}
-                                    className="bg-background/10 backdrop-blur-sm rounded-lg p-6 flex flex-col items-center justify-center h-24 hover:bg-background/20 transition-all duration-300 border border-border/20 group"
-                                    variants={scaleIn}
-                                    whileHover={{
-                                        scale: 1.05,
-                                        backgroundColor: "rgba(255,255,255,0.2)",
-                                    }}
-                                    transition={{ duration: 0.3 }}
-                                >
-                                    {(() => {
-                                        const IconComponent = getIconComponent(tool.icon);
-                                        return <IconComponent className="w-8 h-8 mb-2 text-primary-foreground/70 group-hover:text-primary-foreground transition-colors" />;
-                                    })()}
-                                    <span className="text-sm font-semibold text-center">
-                                        {tool.name}
-                                    </span>
-                                </motion.div>
-                            ))}
+                            {tools.map((tool, index) => {
+                                const IconComponent = getIconComponent(tool.icon);
+                                return (
+                                    <motion.div
+                                        key={index}
+                                        className="flex flex-col items-center justify-center gap-2 p-6 transition-all duration-300 border group rounded-2xl border-border/70 bg-card hover:border-primary/40 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10"
+                                        variants={scaleIn}
+                                    >
+                                        <IconComponent className="w-7 h-7 text-primary transition-transform duration-300 group-hover:scale-110" />
+                                        <span className="text-sm font-semibold text-center text-muted-foreground group-hover:text-foreground">
+                                            {tool.name}
+                                        </span>
+                                    </motion.div>
+                                );
+                            })}
                         </motion.div>
                     </div>
-                </motion.div>
+                </section>
             )}
 
             {/* Meet Your Instructor Section */}
             {instructor.name && (instructor.bio || instructor.experience) && (
-                <motion.div
-                    className="container mx-auto px-6 py-16"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                >
-                    <motion.div
-                        className="text-center mb-12"
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        viewport={{ once: true }}
-                    >
-                        <h2 className="text-3xl font-bold text-foreground mb-4">
-                            Meet Your Instructor
-                        </h2>
-                        <p className="text-muted-foreground">
-                            Learn from an industry expert with real-world experience
-                        </p>
-                    </motion.div>
-                    <div className="max-w-6xl mx-auto">
+                <section className="py-20 md:py-28">
+                    <div className="container px-4 mx-auto">
                         <motion.div
-                            className="text-center mb-8"
-                            initial={{ opacity: 0, y: 20 }}
+                            className="max-w-2xl mx-auto mb-14 text-center"
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
+                            transition={{ duration: 0.6 }}
                             viewport={{ once: true }}
                         >
-                            <h3 className="text-2xl font-bold text-foreground mb-2">
-                                {instructor.name}
-                            </h3>
-                            <p className="text-muted-foreground font-medium text-lg">
-                                {instructor.title}
+                            <div className="eyebrow mb-6">
+                                <UserRound className="w-3.5 h-3.5" />
+                                Your Mentor
+                            </div>
+                            <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
+                                Meet Your Instructor
+                            </h2>
+                            <p className="text-lg text-muted-foreground">
+                                Learn from an industry expert with real-world experience
                             </p>
                         </motion.div>
-                        <motion.div
-                            className="grid md:grid-cols-2 gap-12 items-stretch"
-                            variants={staggerContainer}
-                            initial="initial"
-                            whileInView="animate"
-                            viewport={{ once: true }}
-                        >
-                            {instructor.bio && (
-                                <motion.div
-                                    className="bg-card rounded-2xl p-8 shadow-lg border border-border h-full flex flex-col"
-                                    variants={fadeInUp}
-                                    whileHover={{ scale: 1.02 }}
-                                >
-                                    <h4 className="text-xl font-semibold text-foreground mb-4 flex items-center">
-                                        <div className="w-2 h-8 bg-gradient-to-b from-primary to-primary/70 rounded-full mr-3"></div>
-                                        Professional Background
-                                    </h4>
-                                    <p className="text-muted-foreground leading-relaxed flex-1">
-                                        {instructor.bio}
-                                    </p>
-                                </motion.div>
-                            )}
-                            {instructor.experience && (
-                                <motion.div
-                                    className="bg-card rounded-2xl p-8 shadow-lg border border-border h-full flex flex-col"
-                                    variants={fadeInUp}
-                                    whileHover={{ scale: 1.02 }}
-                                >
-                                    <h4 className="text-xl font-semibold text-foreground mb-4 flex items-center">
-                                        <div className="w-2 h-8 bg-gradient-to-b from-primary to-primary/70 rounded-full mr-3"></div>
-                                        Teaching Excellence
-                                    </h4>
-                                    <p className="text-muted-foreground leading-relaxed flex-1">
-                                        {instructor.experience}
-                                    </p>
-                                </motion.div>
-                            )}
-                        </motion.div>
-                        {instructorStats.length > 0 && (
+
+                        <div className="max-w-5xl mx-auto">
                             <motion.div
-                                className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12"
+                                className="mb-10 text-center"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.1 }}
+                                viewport={{ once: true }}
+                            >
+                                <h3 className="mb-2 text-2xl font-bold tracking-tight">
+                                    {instructor.name}
+                                </h3>
+                                <p className="max-w-2xl mx-auto font-medium text-muted-foreground">
+                                    {instructor.title}
+                                </p>
+                            </motion.div>
+
+                            <motion.div
+                                className="grid gap-6 md:grid-cols-2 items-stretch"
                                 variants={staggerContainer}
                                 initial="initial"
                                 whileInView="animate"
                                 viewport={{ once: true }}
                             >
-                                {instructorStats.map((stat, index) => (
+                                {instructor.bio && (
                                     <motion.div
-                                        key={index}
-                                        className="text-center bg-muted/50 rounded-xl p-6"
-                                        variants={scaleIn}
-                                        whileHover={{ scale: 1.05 }}
+                                        className="flex flex-col h-full p-8 rounded-3xl card-gradient"
+                                        variants={fadeInUp}
                                     >
-                                        <motion.div
-                                            className="text-3xl font-bold text-foreground mb-2"
-                                            initial={{ opacity: 0, scale: 0.5 }}
-                                            whileInView={{ opacity: 1, scale: 1 }}
-                                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                                            viewport={{ once: true }}
-                                        >
-                                            {stat.value}
-                                        </motion.div>
-                                        <div className="text-muted-foreground font-medium">
-                                            {stat.label}
-                                        </div>
+                                        <h4 className="flex items-center mb-4 text-xl font-semibold">
+                                            <span className="w-1.5 h-7 mr-3 rounded-full bg-primary" />
+                                            Professional Background
+                                        </h4>
+                                        <p className="flex-1 leading-relaxed text-muted-foreground">
+                                            {instructor.bio}
+                                        </p>
                                     </motion.div>
-                                ))}
+                                )}
+                                {instructor.experience && (
+                                    <motion.div
+                                        className="flex flex-col h-full p-8 rounded-3xl card-gradient"
+                                        variants={fadeInUp}
+                                    >
+                                        <h4 className="flex items-center mb-4 text-xl font-semibold">
+                                            <span className="w-1.5 h-7 mr-3 rounded-full bg-primary" />
+                                            Teaching Excellence
+                                        </h4>
+                                        <p className="flex-1 leading-relaxed text-muted-foreground">
+                                            {instructor.experience}
+                                        </p>
+                                    </motion.div>
+                                )}
                             </motion.div>
-                        )}
+
+                            {instructorStats.length > 0 && (
+                                <motion.div
+                                    className="grid grid-cols-2 gap-4 mt-10 md:grid-cols-4"
+                                    variants={staggerContainer}
+                                    initial="initial"
+                                    whileInView="animate"
+                                    viewport={{ once: true }}
+                                >
+                                    {instructorStats.map((stat, index) => (
+                                        <motion.div
+                                            key={index}
+                                            className="p-6 text-center border rounded-2xl border-border/70 bg-secondary/40"
+                                            variants={scaleIn}
+                                        >
+                                            <div className="mb-1 text-3xl font-bold tracking-tight text-gradient">
+                                                {stat.value}
+                                            </div>
+                                            <div className="text-sm font-medium text-muted-foreground">
+                                                {stat.label}
+                                            </div>
+                                        </motion.div>
+                                    ))}
+                                </motion.div>
+                            )}
+                        </div>
                     </div>
-                </motion.div>
+                </section>
             )}
+
+            {/* Final CTA */}
+            <section className="py-20 md:py-28">
+                <div className="container px-4">
+                    <motion.div
+                        className="cta-panel px-6 py-16 text-center md:px-16"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        viewport={{ once: true }}
+                    >
+                        <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
+                            Ready to Become a {title}?
+                        </h2>
+                        <p className="max-w-2xl mx-auto mb-10 text-lg text-white/85">
+                            Cohort starts {startDate} · {format}. Seats are limited —
+                            secure yours today.
+                        </p>
+                        <Button
+                            asChild
+                            size="lg"
+                            className="px-8 py-6 text-base font-semibold rounded-full bg-white text-primary hover:bg-white/90 group"
+                        >
+                            <Link href={ROUTES.CONTACT}>
+                                Reserve Your Seat
+                                <ArrowRight className="w-5 h-5 ml-1 transition-transform group-hover:translate-x-1" />
+                            </Link>
+                        </Button>
+                    </motion.div>
+                </div>
+            </section>
         </div>
     );
 };

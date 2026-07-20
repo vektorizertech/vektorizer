@@ -565,74 +565,74 @@ const FITLY_AI = {
   ],
 };
 
-const CODEPLAY = {
-  slug: "codeplay",
-  title: "CodePlay",
-  subtitle:
-    "A Wordle-inspired coding game built using the MERN stack with multiple difficulty levels, competitive features, and real-time leaderboards.",
-  thumbnail: "/images/projects/codeplay.png",
-  website: "https://codeplay.vercel.app",
-  featured: true,
-  images: false,
-  modules: [
-    {
-      title: "Multi-Level Gameplay",
-      isImageMobile: false,
-      description:
-        "Four distinct difficulty levels designed to challenge programmers of all skill levels with progressively complex coding puzzles.",
-      points: [
-        "Beginner, Intermediate, Advanced, and Expert levels",
-        "Time-based challenges and constraints",
-        "Dynamic difficulty adjustment",
-        "Skill-based problem selection",
-      ],
-    },
-    {
-      title: "Competitive Features",
-      isImageMobile: false,
-      description:
-        "Comprehensive competitive system with leaderboards, rankings, and tournament-style gameplay for enhanced engagement.",
-      points: [
-        "Real-time leaderboard updates",
-        "Top 25 players showcase",
-        "Achievement system and badges",
-        "Weekly and monthly competitions",
-      ],
-    },
-    {
-      title: "User Dashboard",
-      isImageMobile: false,
-      description:
-        "Personal dashboard tracking game history, statistics, achievements, and progress across different difficulty levels.",
-      points: [
-        "Comprehensive game history tracking",
-        "Personal statistics and analytics",
-        "Achievement progress tracking",
-        "Performance trends and insights",
-      ],
-    },
-    {
-      title: "Real-Time Updates",
-      isImageMobile: false,
-      description:
-        "Live updates system providing real-time game state synchronization and instant feedback for enhanced user experience.",
-      points: [
-        "Real-time game state synchronization",
-        "Instant feedback and scoring",
-        "Live multiplayer capabilities",
-        "Push notifications for achievements",
-      ],
-    },
-  ],
-  tech: [
-    "React.js",
-    "Node.js",
-    "Express.js",
-    "MongoDB",
-    "Game Logic",
-    "Real-time Updates",
-  ],
-};
+// const CODEPLAY = {
+//   slug: "codeplay",
+//   title: "CodePlay",
+//   subtitle:
+//     "A Wordle-inspired coding game built using the MERN stack with multiple difficulty levels, competitive features, and real-time leaderboards.",
+//   thumbnail: "/images/projects/codeplay.png",
+//   website: "https://codeplay.vercel.app",
+//   featured: true,
+//   images: false,
+//   modules: [
+//     {
+//       title: "Multi-Level Gameplay",
+//       isImageMobile: false,
+//       description:
+//         "Four distinct difficulty levels designed to challenge programmers of all skill levels with progressively complex coding puzzles.",
+//       points: [
+//         "Beginner, Intermediate, Advanced, and Expert levels",
+//         "Time-based challenges and constraints",
+//         "Dynamic difficulty adjustment",
+//         "Skill-based problem selection",
+//       ],
+//     },
+//     {
+//       title: "Competitive Features",
+//       isImageMobile: false,
+//       description:
+//         "Comprehensive competitive system with leaderboards, rankings, and tournament-style gameplay for enhanced engagement.",
+//       points: [
+//         "Real-time leaderboard updates",
+//         "Top 25 players showcase",
+//         "Achievement system and badges",
+//         "Weekly and monthly competitions",
+//       ],
+//     },
+//     {
+//       title: "User Dashboard",
+//       isImageMobile: false,
+//       description:
+//         "Personal dashboard tracking game history, statistics, achievements, and progress across different difficulty levels.",
+//       points: [
+//         "Comprehensive game history tracking",
+//         "Personal statistics and analytics",
+//         "Achievement progress tracking",
+//         "Performance trends and insights",
+//       ],
+//     },
+//     {
+//       title: "Real-Time Updates",
+//       isImageMobile: false,
+//       description:
+//         "Live updates system providing real-time game state synchronization and instant feedback for enhanced user experience.",
+//       points: [
+//         "Real-time game state synchronization",
+//         "Instant feedback and scoring",
+//         "Live multiplayer capabilities",
+//         "Push notifications for achievements",
+//       ],
+//     },
+//   ],
+//   tech: [
+//     "React.js",
+//     "Node.js",
+//     "Express.js",
+//     "MongoDB",
+//     "Game Logic",
+//     "Real-time Updates",
+//   ],
+// };
 
 const SOOKUP = {
   slug: "sookup",
@@ -790,7 +790,7 @@ const RAW_PROJECTS = [
   AI_DOCUMENT_ANALYSIS,
   SHAREPLAY,
   FITLY_AI,
-  CODEPLAY,
+  // CODEPLAY,
   SOOKUP,
   TRINACRIA_DESIGNS,
 ];
