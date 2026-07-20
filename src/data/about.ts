@@ -40,10 +40,28 @@ export const VALUES = [
 
 export const TEAM = [
   {
-    name: "Amir Jabbar",
-    role: "Co Founder",
+    name: "Aamir Jabbar",
+    role: "Founder, CEO & CTO",
     image: "/images/about/amir.png",
-    bio: "Business Data Analyst with global experience in strategy, analytics, and professional training across top organizations.",
+    initials: "AJ",
+    bio: "Analytics Engineer & Technical Co-Founder building the bridge between raw data and strategic decisions. With over 10 years of experience in data engineering, business intelligence, and cloud technologies, Aamir leads the technology vision at Vektorizer. He specializes in architecting full-stack web solutions, designing ETL pipelines, and applying machine learning to solve real-world business problems.",
+    credentials: [
+      "Trainer at atomcamp",
+      "Training Consultant, British Council",
+      "DACUM Curriculum Designer, European Union",
+    ],
+  },
+  {
+    name: "Sahher Abbas",
+    role: "Co-founder & Tech Trainer",
+    image: "",
+    initials: "SA",
+    bio: "STEAM Instructor, Technology Trainer, and CANVA Educator committed to empowering learners through innovative, technology-driven learning experiences. With expertise in AI, programming, robotics, prompt engineering, and digital content creation, Sahher is passionate about creating engaging, interactive, and activity-based curriculum and courses.",
+    credentials: [
+      "STEAM Instructor",
+      "CANVA Certified Educator",
+      "AI & Robotics Trainer",
+    ],
   },
 ];
 

@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Scale } from "lucide-react";
+import { Scale, Target } from "lucide-react";
 import { ROUTES } from "@/data/routes";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -52,19 +52,21 @@ export const metadata: Metadata = {
 const TermsOfService = () => {
 
     return (
-        <div className="min-h-screen pt-20 bg-gradient-to-br from-background via-secondary/30 to-background">
+        <div className="min-h-screen">
             {/* Header */}
-            <section className="py-16">
-                <div className="container px-4">
+            <section className="relative pt-36 pb-12 hero-gradient md:pt-44 md:pb-16">
+                <div className="bg-grid-fade" />
+                <div className="container relative px-4">
                     <div className="max-w-4xl mx-auto">
-                        <div className="mb-12 text-center" data-aos="fade-up">
-                            <div className="inline-flex items-center px-6 py-3 mb-6 text-sm font-semibold rounded-full bg-primary/10 text-primary dark:text-white">
-                                ⚖️ Legal Terms
+                        <div className="text-center" data-aos="fade-up">
+                            <div className="eyebrow mb-8">
+                                <Scale className="w-3.5 h-3.5" />
+                                Legal Terms
                             </div>
-                            <h1 className="mb-6 text-4xl font-bold md:text-6xl">
+                            <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-6xl">
                                 Terms of <span className="text-gradient">Service</span>
                             </h1>
-                            <p className="max-w-3xl mx-auto text-xl text-muted-foreground">
+                            <p className="max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">
                                 Please read these terms carefully before using our services. They establish the foundation of our professional relationship.
                             </p>
                             <div className="mt-6 text-sm text-muted-foreground">
@@ -79,10 +81,10 @@ const TermsOfService = () => {
             <section className="py-12">
                 <div className="container px-4">
                     <div className="max-w-4xl mx-auto">
-                        <Card className="p-8 mb-12 card-gradient" data-aos="fade-up" data-aos-delay="200">
+                        <Card className="p-8 mb-12 rounded-3xl card-gradient" data-aos="fade-up" data-aos-delay="200">
                             <div className="flex items-start space-x-4">
-                                <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-primary to-primary/80">
-                                    <Scale className="w-6 h-6 text-white" />
+                                <div className="icon-chip">
+                                    <Scale className="w-6 h-6" />
                                 </div>
                                 <div>
                                     <h2 className="mb-4 text-2xl font-bold">Agreement Overview</h2>
@@ -107,13 +109,13 @@ const TermsOfService = () => {
                             {TERMS_OF_SERVICES.map((section, index) => (
                                 <Card
                                     key={index}
-                                    className="p-8 card-gradient"
+                                    className="p-8 rounded-3xl card-gradient"
                                     data-aos="fade-up"
                                     data-aos-delay={`${index * 100}`}
                                 >
                                     <div className="flex items-start space-x-6">
-                                        <div className="flex items-center justify-center flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-r from-primary to-primary/80">
-                                            <section.icon className="text-white h-7 w-7" />
+                                        <div className="icon-chip w-14 h-14">
+                                            <section.icon className="h-7 w-7" />
                                         </div>
                                         <div className="flex-1">
                                             <h3 className="mb-6 text-2xl font-bold">{section.title}</h3>
@@ -138,9 +140,11 @@ const TermsOfService = () => {
             <section className="py-16 bg-secondary/50">
                 <div className="container px-4">
                     <div className="max-w-4xl mx-auto">
-                        <Card className="p-8 card-gradient" data-aos="fade-up">
-                            <h3 className="flex items-center mb-6 text-2xl font-bold">
-                                <span className="mr-3">🎯</span>
+                        <Card className="p-8 rounded-3xl card-gradient" data-aos="fade-up">
+                            <h3 className="flex items-center gap-3 mb-6 text-2xl font-bold">
+                                <span className="icon-chip w-10 h-10 rounded-xl">
+                                    <Target className="w-5 h-5" />
+                                </span>
                                 Project-Specific Terms
                             </h3>
                             <div className="grid gap-8 md:grid-cols-2">
@@ -154,7 +158,7 @@ const TermsOfService = () => {
                                                 <ul className="space-y-2 text-muted-foreground">
                                                     {term.points.map((point, idx) => (
                                                         <li key={idx} className="flex items-start space-x-2">
-                                                            <span className="mt-1.5 block w-2.5 h-2.5 rotate-45 bg-gradient-to-br from-teal-400 via-teal-500 to-emerald-600 shadow-[0_0_5px_rgba(99,102,241,0.7)]" />
+                                                            <span className="mt-2 block w-2 h-2 shrink-0 rounded-full bg-primary" />
                                                             <span>{point}</span>
                                                         </li>
                                                     ))}
@@ -173,7 +177,7 @@ const TermsOfService = () => {
             <section className="py-16">
                 <div className="container px-4">
                     <div className="max-w-4xl mx-auto">
-                        <Card className="p-8 card-gradient" data-aos="fade-up">
+                        <Card className="p-8 rounded-3xl card-gradient" data-aos="fade-up">
                             <h3 className="mb-6 text-2xl font-bold">Support & Maintenance</h3>
                             <div className="grid gap-6 md:grid-cols-3">
                                 {SUPPORT_MAINTENANCE.map((item, index) => (
@@ -195,7 +199,7 @@ const TermsOfService = () => {
             <section className="py-16 bg-secondary/50">
                 <div className="container px-4">
                     <div className="max-w-4xl mx-auto">
-                        <Card className="p-8 card-gradient" data-aos="fade-up">
+                        <Card className="p-8 rounded-3xl card-gradient" data-aos="fade-up">
                             <h3 className="mb-6 text-2xl font-bold">Termination of Services</h3>
                             <div className="space-y-6 text-muted-foreground">
                                 <p>
@@ -208,7 +212,7 @@ const TermsOfService = () => {
                                             <ul className="space-y-4 text-sm">
                                                 {section.content.map((point, i) => (
                                                     <li key={i} className="flex items-start space-x-2">
-                                                        <span className="mt-1 block w-2.5 h-2.5 transform rotate-45 bg-gradient-to-br from-teal-400 via-teal-500 to-emerald-600 shadow-[0_0_6px_rgba(99,102,241,0.7)]" />
+                                                        <span className="mt-1.5 block w-2 h-2 shrink-0 rounded-full bg-primary" />
                                                         <span>{point}</span>
                                                     </li>
                                                 ))}
